@@ -11,6 +11,7 @@
 \usepackage{subcaption}
 \usepackage{xcolor}
 \usepackage{float}
+\usepackage{fancyvrb}
 
 % Title and Author
 \title{CSE 240A Branch Predictor Project:\\
@@ -287,7 +288,7 @@ In compliance with the project requirement to cite AI assistance and include pro
 
 \subsection{Conversation 1: TAGE predictor counter debug}
 
-\begin{verbatim}
+\begin{Verbatim}[fontsize=\tiny, breaklines=true]
 Me: I have a partially implemented TAGE predictor in C code, but I'm running into an issue where the saturating counter for the tagged entries sometimes goes out of range. Could you help me debug this?
 
 GPT-4o: Absolutely, I'd be glad to help you debug your TAGE predictor implementation! The saturating counter going out of range is usually caused by incorrect updates (like incrementing beyond the max or decrementing below zero) or initialization issues.
@@ -567,10 +568,10 @@ if (outcome == TAKEN) {
 4. Do the same for the **usefulness** counters and bimodal counters (if they’re also meant to be saturating).
 
 Once you add those fixes, you shouldn’t see the counters blowing past the valid range. Let me know if you have other questions on TAGE details, or if you need help deciding on the bit widths for your counters!
-\end{verbatim}
+\end{Verbatim}
 
 \subsection{Conversation 2: TAGE Predictor Overview}
-\begin{verbatim}
+\begin{Verbatim}[fontsize=\tiny, breaklines=true]
 Me: Please provide a high-level explanation of how a TAGE predictor works, focusing on the multi-bank structure, the geometric history lengths, and how partial tags are generated.
 
 GPT-4o: Sure! Here's a high-level explanation of how a **TAGE (TAgged GEometric history length) predictor** works, with a focus on its **multi-bank structure**, **geometric history lengths**, and **partial tag generation**:
@@ -636,10 +637,10 @@ TAGE is a **state-of-the-art branch predictor** used in modern CPUs to guess the
 - **Partial tags**: Small hash-like signatures identify valid entries for a given PC/history pair.
 
 Let me know if you want a diagram or a more detailed example to go with this!
-\end{verbatim}
+\end{Verbatim}
 
 \subsection{Conversation 3: TAGE predictor bit calculation}
-\begin{verbatim}
+\begin{Verbatim}[fontsize=\tiny, breaklines=true]
 Me: I'm trying to keep my TAGE predictor under 64K + 256 bits. How do I calculate the bit usage for each bank if I have 3 bits for the saturating counter, 10 bits for the tag, and 2 or 3 bits for usefulness? Also, how do I account for compressed histories?
 
 GPT-4o: Great question! Let's break this down and calculate the storage used per entry in each TAGE bank, and then look at how to stay within your budget of **64K + 256 bits** (which is **65,280 bits** total).
@@ -728,10 +729,10 @@ You can also vary the number of entries per bank (fewer entries for longer-histo
 - Use your total bit budget (65,024) to divide across banks and determine entry count
 
 Let me know how many banks you’re using or if you want help optimizing your layout!
-\end{verbatim}
+\end{Verbatim}
 
 \subsection{Conversation 4: TAGE Training Function Annotation}
-\begin{verbatim}
+\begin{Verbatim}[fontsize=\tiny, breaklines=true]
 Me:
 
 Could you annotate the tage_train() function?
@@ -972,10 +973,10 @@ static inline void tage_train(uint32_t pc, uint8_t outcome) {
 5. **Usefulness Update:** If the primary TAGE bank disagreed with the alternate but was correct, we increase its usefulness (and vice versa).
 
 6. **Updating History:** Global history (`t_globalHistory`), path history (`t_pathHistory`), and compressed history are all updated with the latest outcome to keep the TAGE tables properly indexed and tagged for future predictions.
-\end{verbatim}
+\end{Verbatim}
 
 \subsection{Conversation 5: Docker setup for predictor}
-\begin{verbatim}
+\begin{Verbatim}[fontsize=\tiny, breaklines=true]
 Me: Show me how to set up a Docker container to compile and run `predictor.c` with `make`. I'm on Windows, so I might need the correct volume mounts. Also show me the exact commands I'd run to test the .bz2 trace files in my trace/ dir.
 
 GPT-4o: Sure! Let's walk through setting up a Docker container that compiles and runs `predictor.c` using `make`, and also lets you test `.bz2` trace files from a `trace/` directory on your Windows machine.
@@ -1101,10 +1102,10 @@ make
 ---
 
 Would you like help writing a `Makefile`, if you don't already have one? Or a script to automate all trace testing?
-\end{verbatim}
+\end{Verbatim}
 
-\subsection{Conversation 2: Gshare Misprediction Rate Difference}
-\begin{verbatim}
+\subsection{Conversation 6: Gshare Misprediction Rate Difference}
+\begin{Verbatim}[fontsize=\tiny, breaklines=true]
 Me: Can you explain why the runall.sh script outputs "Misprediction Rate: 0.826" for gshare:14 on fp_1 but "Misprediction Rate: 0.827" for gshare:15? Are those differences from random seeds or actual structural differences in the table indexing?
 
 GPT-4o: The slight difference in **Misprediction Rate** between `gshare:14` (0.826) and `gshare:15` (0.827) is most likely due to **actual structural differences in the indexing mechanism** of the **gshare** predictor, rather than random seeds — assuming the simulator is deterministic (most academic simulators are).
@@ -1167,7 +1168,7 @@ If you're using a standard gshare implementation and always run the same trace (
 The difference in misprediction rate between `gshare:14` and `gshare:15` is due to **structural indexing differences** (how GHR and PC bits XOR to select table entries), not randomness. The slightly worse rate for `gshare:15` on `fp_1` is probably a quirk of **aliasing patterns** or rounding precision — not an anomaly.
 
 If you want, I can show you how to visualize the indexing to see exactly which bits are used at each size.
-\end{verbatim}
+\end{Verbatim}
 
 \thispagestyle{ack_footer}
 
