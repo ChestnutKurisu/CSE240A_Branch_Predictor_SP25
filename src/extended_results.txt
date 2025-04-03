@@ -1,0 +1,4030 @@
+Extended Branch Predictor Experiments
+======================================
+GSHARE - ghistoryBits=8
+Trace: int_1
+Approx memory usage: 512 bits (0.06 KB)
+Branches:           3771697
+Incorrect:          1165757
+Misprediction Rate:  30.908
+------
+Trace: int_2
+Approx memory usage: 512 bits (0.06 KB)
+Branches:           3755315
+Incorrect:            47114
+Misprediction Rate:   1.255
+------
+Trace: fp_1
+Approx memory usage: 512 bits (0.06 KB)
+Branches:           1546797
+Incorrect:            25448
+Misprediction Rate:   1.645
+------
+Trace: fp_2
+Approx memory usage: 512 bits (0.06 KB)
+Branches:           2422049
+Incorrect:           277223
+Misprediction Rate:  11.446
+------
+Trace: mm_1
+Approx memory usage: 512 bits (0.06 KB)
+Branches:           3014850
+Incorrect:           678340
+Misprediction Rate:  22.500
+------
+Trace: mm_2
+Approx memory usage: 512 bits (0.06 KB)
+Branches:           2563897
+Incorrect:           452097
+Misprediction Rate:  17.633
+------
+======
+GSHARE - ghistoryBits=9
+Trace: int_1
+Approx memory usage: 1024 bits (0.12 KB)
+Branches:           3771697
+Incorrect:           984936
+Misprediction Rate:  26.114
+------
+Trace: int_2
+Approx memory usage: 1024 bits (0.12 KB)
+Branches:           3755315
+Incorrect:            36354
+Misprediction Rate:   0.968
+------
+Trace: fp_1
+Approx memory usage: 1024 bits (0.12 KB)
+Branches:           1546797
+Incorrect:            22681
+Misprediction Rate:   1.466
+------
+Trace: fp_2
+Approx memory usage: 1024 bits (0.12 KB)
+Branches:           2422049
+Incorrect:           259954
+Misprediction Rate:  10.733
+------
+Trace: mm_1
+Approx memory usage: 1024 bits (0.12 KB)
+Branches:           3014850
+Incorrect:           501858
+Misprediction Rate:  16.646
+------
+Trace: mm_2
+Approx memory usage: 1024 bits (0.12 KB)
+Branches:           2563897
+Incorrect:           388610
+Misprediction Rate:  15.157
+------
+======
+GSHARE - ghistoryBits=10
+Trace: int_1
+Approx memory usage: 2048 bits (0.25 KB)
+Branches:           3771697
+Incorrect:           830671
+Misprediction Rate:  22.024
+------
+Trace: int_2
+Approx memory usage: 2048 bits (0.25 KB)
+Branches:           3755315
+Incorrect:            27551
+Misprediction Rate:   0.734
+------
+Trace: fp_1
+Approx memory usage: 2048 bits (0.25 KB)
+Branches:           1546797
+Incorrect:            18865
+Misprediction Rate:   1.220
+------
+Trace: fp_2
+Approx memory usage: 2048 bits (0.25 KB)
+Branches:           2422049
+Incorrect:           148486
+Misprediction Rate:   6.131
+------
+Trace: mm_1
+Approx memory usage: 2048 bits (0.25 KB)
+Branches:           3014850
+Incorrect:           395065
+Misprediction Rate:  13.104
+------
+Trace: mm_2
+Approx memory usage: 2048 bits (0.25 KB)
+Branches:           2563897
+Incorrect:           341369
+Misprediction Rate:  13.314
+------
+======
+GSHARE - ghistoryBits=11
+Trace: int_1
+Approx memory usage: 4096 bits (0.50 KB)
+Branches:           3771697
+Incorrect:           718487
+Misprediction Rate:  19.049
+------
+Trace: int_2
+Approx memory usage: 4096 bits (0.50 KB)
+Branches:           3755315
+Incorrect:            21875
+Misprediction Rate:   0.583
+------
+Trace: fp_1
+Approx memory usage: 4096 bits (0.50 KB)
+Branches:           1546797
+Incorrect:            18153
+Misprediction Rate:   1.174
+------
+Trace: fp_2
+Approx memory usage: 4096 bits (0.50 KB)
+Branches:           2422049
+Incorrect:           130632
+Misprediction Rate:   5.393
+------
+Trace: mm_1
+Approx memory usage: 4096 bits (0.50 KB)
+Branches:           3014850
+Incorrect:           298194
+Misprediction Rate:   9.891
+------
+Trace: mm_2
+Approx memory usage: 4096 bits (0.50 KB)
+Branches:           2563897
+Incorrect:           305415
+Misprediction Rate:  11.912
+------
+======
+GSHARE - ghistoryBits=12
+Trace: int_1
+Approx memory usage: 8192 bits (1.00 KB)
+Branches:           3771697
+Incorrect:           610680
+Misprediction Rate:  16.191
+------
+Trace: int_2
+Approx memory usage: 8192 bits (1.00 KB)
+Branches:           3755315
+Incorrect:            18638
+Misprediction Rate:   0.496
+------
+Trace: fp_1
+Approx memory usage: 8192 bits (1.00 KB)
+Branches:           1546797
+Incorrect:            15452
+Misprediction Rate:   0.999
+------
+Trace: fp_2
+Approx memory usage: 8192 bits (1.00 KB)
+Branches:           2422049
+Incorrect:            81446
+Misprediction Rate:   3.363
+------
+Trace: mm_1
+Approx memory usage: 8192 bits (1.00 KB)
+Branches:           3014850
+Incorrect:           237693
+Misprediction Rate:   7.884
+------
+Trace: mm_2
+Approx memory usage: 8192 bits (1.00 KB)
+Branches:           2563897
+Incorrect:           280387
+Misprediction Rate:  10.936
+------
+======
+GSHARE - ghistoryBits=13
+Trace: int_1
+Approx memory usage: 16384 bits (2.00 KB)
+Branches:           3771697
+Incorrect:           521958
+Misprediction Rate:  13.839
+------
+Trace: int_2
+Approx memory usage: 16384 bits (2.00 KB)
+Branches:           3755315
+Incorrect:            15776
+Misprediction Rate:   0.420
+------
+Trace: fp_1
+Approx memory usage: 16384 bits (2.00 KB)
+Branches:           1546797
+Incorrect:            12765
+Misprediction Rate:   0.825
+------
+Trace: fp_2
+Approx memory usage: 16384 bits (2.00 KB)
+Branches:           2422049
+Incorrect:            40641
+Misprediction Rate:   1.678
+------
+Trace: mm_1
+Approx memory usage: 16384 bits (2.00 KB)
+Branches:           3014850
+Incorrect:           201871
+Misprediction Rate:   6.696
+------
+Trace: mm_2
+Approx memory usage: 16384 bits (2.00 KB)
+Branches:           2563897
+Incorrect:           259929
+Misprediction Rate:  10.138
+------
+======
+GSHARE - ghistoryBits=14
+Trace: int_1
+Approx memory usage: 32768 bits (4.00 KB)
+Branches:           3771697
+Incorrect:           460107
+Misprediction Rate:  12.199
+------
+Trace: int_2
+Approx memory usage: 32768 bits (4.00 KB)
+Branches:           3755315
+Incorrect:            15071
+Misprediction Rate:   0.401
+------
+Trace: fp_1
+Approx memory usage: 32768 bits (4.00 KB)
+Branches:           1546797
+Incorrect:            12770
+Misprediction Rate:   0.826
+------
+Trace: fp_2
+Approx memory usage: 32768 bits (4.00 KB)
+Branches:           2422049
+Incorrect:            32820
+Misprediction Rate:   1.355
+------
+Trace: mm_1
+Approx memory usage: 32768 bits (4.00 KB)
+Branches:           3014850
+Incorrect:           160795
+Misprediction Rate:   5.333
+------
+Trace: mm_2
+Approx memory usage: 32768 bits (4.00 KB)
+Branches:           2563897
+Incorrect:           233162
+Misprediction Rate:   9.094
+------
+======
+GSHARE - ghistoryBits=15
+Trace: int_1
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           3771697
+Incorrect:           423190
+Misprediction Rate:  11.220
+------
+Trace: int_2
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           3755315
+Incorrect:            13678
+Misprediction Rate:   0.364
+------
+Trace: fp_1
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           1546797
+Incorrect:            12789
+Misprediction Rate:   0.827
+------
+Trace: fp_2
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           2422049
+Incorrect:            23855
+Misprediction Rate:   0.985
+------
+Trace: mm_1
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           3014850
+Incorrect:           133899
+Misprediction Rate:   4.441
+------
+Trace: mm_2
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           2563897
+Incorrect:           206100
+Misprediction Rate:   8.039
+------
+======
+GSHARE - ghistoryBits=16
+Trace: int_1
+Approx memory usage: 131072 bits (16.00 KB)
+Branches:           3771697
+Incorrect:           442640
+Misprediction Rate:  11.736
+------
+Trace: int_2
+Approx memory usage: 131072 bits (16.00 KB)
+Branches:           3755315
+Incorrect:            13364
+Misprediction Rate:   0.356
+------
+Trace: fp_1
+Approx memory usage: 131072 bits (16.00 KB)
+Branches:           1546797
+Incorrect:            12810
+Misprediction Rate:   0.828
+------
+Trace: fp_2
+Approx memory usage: 131072 bits (16.00 KB)
+Branches:           2422049
+Incorrect:            27804
+Misprediction Rate:   1.148
+------
+Trace: mm_1
+Approx memory usage: 131072 bits (16.00 KB)
+Branches:           3014850
+Incorrect:           124933
+Misprediction Rate:   4.144
+------
+Trace: mm_2
+Approx memory usage: 131072 bits (16.00 KB)
+Branches:           2563897
+Incorrect:           183851
+Misprediction Rate:   7.171
+------
+======
+TOURNAMENT - gh=9, lh=9, pc=9
+Trace: int_1
+Approx memory usage: 7680 bits (0.94 KB)
+Branches:           3771697
+Incorrect:           521442
+Misprediction Rate:  13.825
+------
+Trace: int_2
+Approx memory usage: 7680 bits (0.94 KB)
+Branches:           3755315
+Incorrect:            17241
+Misprediction Rate:   0.459
+------
+Trace: fp_1
+Approx memory usage: 7680 bits (0.94 KB)
+Branches:           1546797
+Incorrect:            15363
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 7680 bits (0.94 KB)
+Branches:           2422049
+Incorrect:            74683
+Misprediction Rate:   3.083
+------
+Trace: mm_1
+Approx memory usage: 7680 bits (0.94 KB)
+Branches:           3014850
+Incorrect:           148272
+Misprediction Rate:   4.918
+------
+Trace: mm_2
+Approx memory usage: 7680 bits (0.94 KB)
+Branches:           2563897
+Incorrect:           243825
+Misprediction Rate:   9.510
+------
+======
+TOURNAMENT - gh=9, lh=9, pc=10
+Trace: int_1
+Approx memory usage: 12288 bits (1.50 KB)
+Branches:           3771697
+Incorrect:           479765
+Misprediction Rate:  12.720
+------
+Trace: int_2
+Approx memory usage: 12288 bits (1.50 KB)
+Branches:           3755315
+Incorrect:            16466
+Misprediction Rate:   0.438
+------
+Trace: fp_1
+Approx memory usage: 12288 bits (1.50 KB)
+Branches:           1546797
+Incorrect:            15327
+Misprediction Rate:   0.991
+------
+Trace: fp_2
+Approx memory usage: 12288 bits (1.50 KB)
+Branches:           2422049
+Incorrect:            74682
+Misprediction Rate:   3.083
+------
+Trace: mm_1
+Approx memory usage: 12288 bits (1.50 KB)
+Branches:           3014850
+Incorrect:           124244
+Misprediction Rate:   4.121
+------
+Trace: mm_2
+Approx memory usage: 12288 bits (1.50 KB)
+Branches:           2563897
+Incorrect:           220341
+Misprediction Rate:   8.594
+------
+======
+TOURNAMENT - gh=9, lh=9, pc=11
+Trace: int_1
+Approx memory usage: 21504 bits (2.62 KB)
+Branches:           3771697
+Incorrect:           450440
+Misprediction Rate:  11.943
+------
+Trace: int_2
+Approx memory usage: 21504 bits (2.62 KB)
+Branches:           3755315
+Incorrect:            15622
+Misprediction Rate:   0.416
+------
+Trace: fp_1
+Approx memory usage: 21504 bits (2.62 KB)
+Branches:           1546797
+Incorrect:            15309
+Misprediction Rate:   0.990
+------
+Trace: fp_2
+Approx memory usage: 21504 bits (2.62 KB)
+Branches:           2422049
+Incorrect:            50101
+Misprediction Rate:   2.069
+------
+Trace: mm_1
+Approx memory usage: 21504 bits (2.62 KB)
+Branches:           3014850
+Incorrect:           125347
+Misprediction Rate:   4.158
+------
+Trace: mm_2
+Approx memory usage: 21504 bits (2.62 KB)
+Branches:           2563897
+Incorrect:           203769
+Misprediction Rate:   7.948
+------
+======
+TOURNAMENT - gh=9, lh=9, pc=12
+Trace: int_1
+Approx memory usage: 39936 bits (4.88 KB)
+Branches:           3771697
+Incorrect:           438061
+Misprediction Rate:  11.614
+------
+Trace: int_2
+Approx memory usage: 39936 bits (4.88 KB)
+Branches:           3755315
+Incorrect:            14951
+Misprediction Rate:   0.398
+------
+Trace: fp_1
+Approx memory usage: 39936 bits (4.88 KB)
+Branches:           1546797
+Incorrect:            15293
+Misprediction Rate:   0.989
+------
+Trace: fp_2
+Approx memory usage: 39936 bits (4.88 KB)
+Branches:           2422049
+Incorrect:            50102
+Misprediction Rate:   2.069
+------
+Trace: mm_1
+Approx memory usage: 39936 bits (4.88 KB)
+Branches:           3014850
+Incorrect:           119742
+Misprediction Rate:   3.972
+------
+Trace: mm_2
+Approx memory usage: 39936 bits (4.88 KB)
+Branches:           2563897
+Incorrect:           193160
+Misprediction Rate:   7.534
+------
+======
+TOURNAMENT - gh=9, lh=10, pc=9
+Trace: int_1
+Approx memory usage: 9216 bits (1.12 KB)
+Branches:           3771697
+Incorrect:           516189
+Misprediction Rate:  13.686
+------
+Trace: int_2
+Approx memory usage: 9216 bits (1.12 KB)
+Branches:           3755315
+Incorrect:            16704
+Misprediction Rate:   0.445
+------
+Trace: fp_1
+Approx memory usage: 9216 bits (1.12 KB)
+Branches:           1546797
+Incorrect:            15368
+Misprediction Rate:   0.994
+------
+Trace: fp_2
+Approx memory usage: 9216 bits (1.12 KB)
+Branches:           2422049
+Incorrect:            78620
+Misprediction Rate:   3.246
+------
+Trace: mm_1
+Approx memory usage: 9216 bits (1.12 KB)
+Branches:           3014850
+Incorrect:            98612
+Misprediction Rate:   3.271
+------
+Trace: mm_2
+Approx memory usage: 9216 bits (1.12 KB)
+Branches:           2563897
+Incorrect:           240577
+Misprediction Rate:   9.383
+------
+======
+TOURNAMENT - gh=9, lh=10, pc=10
+Trace: int_1
+Approx memory usage: 14336 bits (1.75 KB)
+Branches:           3771697
+Incorrect:           476073
+Misprediction Rate:  12.622
+------
+Trace: int_2
+Approx memory usage: 14336 bits (1.75 KB)
+Branches:           3755315
+Incorrect:            15980
+Misprediction Rate:   0.426
+------
+Trace: fp_1
+Approx memory usage: 14336 bits (1.75 KB)
+Branches:           1546797
+Incorrect:            15329
+Misprediction Rate:   0.991
+------
+Trace: fp_2
+Approx memory usage: 14336 bits (1.75 KB)
+Branches:           2422049
+Incorrect:            78619
+Misprediction Rate:   3.246
+------
+Trace: mm_1
+Approx memory usage: 14336 bits (1.75 KB)
+Branches:           3014850
+Incorrect:            77802
+Misprediction Rate:   2.581
+------
+Trace: mm_2
+Approx memory usage: 14336 bits (1.75 KB)
+Branches:           2563897
+Incorrect:           217501
+Misprediction Rate:   8.483
+------
+======
+TOURNAMENT - gh=9, lh=10, pc=11
+Trace: int_1
+Approx memory usage: 24576 bits (3.00 KB)
+Branches:           3771697
+Incorrect:           446696
+Misprediction Rate:  11.843
+------
+Trace: int_2
+Approx memory usage: 24576 bits (3.00 KB)
+Branches:           3755315
+Incorrect:            14986
+Misprediction Rate:   0.399
+------
+Trace: fp_1
+Approx memory usage: 24576 bits (3.00 KB)
+Branches:           1546797
+Incorrect:            15311
+Misprediction Rate:   0.990
+------
+Trace: fp_2
+Approx memory usage: 24576 bits (3.00 KB)
+Branches:           2422049
+Incorrect:            50125
+Misprediction Rate:   2.070
+------
+Trace: mm_1
+Approx memory usage: 24576 bits (3.00 KB)
+Branches:           3014850
+Incorrect:            72564
+Misprediction Rate:   2.407
+------
+Trace: mm_2
+Approx memory usage: 24576 bits (3.00 KB)
+Branches:           2563897
+Incorrect:           201167
+Misprediction Rate:   7.846
+------
+======
+TOURNAMENT - gh=9, lh=10, pc=12
+Trace: int_1
+Approx memory usage: 45056 bits (5.50 KB)
+Branches:           3771697
+Incorrect:           434100
+Misprediction Rate:  11.509
+------
+Trace: int_2
+Approx memory usage: 45056 bits (5.50 KB)
+Branches:           3755315
+Incorrect:            14309
+Misprediction Rate:   0.381
+------
+Trace: fp_1
+Approx memory usage: 45056 bits (5.50 KB)
+Branches:           1546797
+Incorrect:            15295
+Misprediction Rate:   0.989
+------
+Trace: fp_2
+Approx memory usage: 45056 bits (5.50 KB)
+Branches:           2422049
+Incorrect:            50107
+Misprediction Rate:   2.069
+------
+Trace: mm_1
+Approx memory usage: 45056 bits (5.50 KB)
+Branches:           3014850
+Incorrect:            68189
+Misprediction Rate:   2.262
+------
+Trace: mm_2
+Approx memory usage: 45056 bits (5.50 KB)
+Branches:           2563897
+Incorrect:           190532
+Misprediction Rate:   7.431
+------
+======
+TOURNAMENT - gh=9, lh=11, pc=9
+Trace: int_1
+Approx memory usage: 11776 bits (1.44 KB)
+Branches:           3771697
+Incorrect:           512705
+Misprediction Rate:  13.593
+------
+Trace: int_2
+Approx memory usage: 11776 bits (1.44 KB)
+Branches:           3755315
+Incorrect:            16076
+Misprediction Rate:   0.428
+------
+Trace: fp_1
+Approx memory usage: 11776 bits (1.44 KB)
+Branches:           1546797
+Incorrect:            15378
+Misprediction Rate:   0.994
+------
+Trace: fp_2
+Approx memory usage: 11776 bits (1.44 KB)
+Branches:           2422049
+Incorrect:            86920
+Misprediction Rate:   3.589
+------
+Trace: mm_1
+Approx memory usage: 11776 bits (1.44 KB)
+Branches:           3014850
+Incorrect:            89683
+Misprediction Rate:   2.975
+------
+Trace: mm_2
+Approx memory usage: 11776 bits (1.44 KB)
+Branches:           2563897
+Incorrect:           238138
+Misprediction Rate:   9.288
+------
+======
+TOURNAMENT - gh=9, lh=11, pc=10
+Trace: int_1
+Approx memory usage: 17408 bits (2.12 KB)
+Branches:           3771697
+Incorrect:           471920
+Misprediction Rate:  12.512
+------
+Trace: int_2
+Approx memory usage: 17408 bits (2.12 KB)
+Branches:           3755315
+Incorrect:            15105
+Misprediction Rate:   0.402
+------
+Trace: fp_1
+Approx memory usage: 17408 bits (2.12 KB)
+Branches:           1546797
+Incorrect:            15331
+Misprediction Rate:   0.991
+------
+Trace: fp_2
+Approx memory usage: 17408 bits (2.12 KB)
+Branches:           2422049
+Incorrect:            86919
+Misprediction Rate:   3.589
+------
+Trace: mm_1
+Approx memory usage: 17408 bits (2.12 KB)
+Branches:           3014850
+Incorrect:            71359
+Misprediction Rate:   2.367
+------
+Trace: mm_2
+Approx memory usage: 17408 bits (2.12 KB)
+Branches:           2563897
+Incorrect:           214978
+Misprediction Rate:   8.385
+------
+======
+TOURNAMENT - gh=9, lh=11, pc=11
+Trace: int_1
+Approx memory usage: 28672 bits (3.50 KB)
+Branches:           3771697
+Incorrect:           441735
+Misprediction Rate:  11.712
+------
+Trace: int_2
+Approx memory usage: 28672 bits (3.50 KB)
+Branches:           3755315
+Incorrect:            14322
+Misprediction Rate:   0.381
+------
+Trace: fp_1
+Approx memory usage: 28672 bits (3.50 KB)
+Branches:           1546797
+Incorrect:            15312
+Misprediction Rate:   0.990
+------
+Trace: fp_2
+Approx memory usage: 28672 bits (3.50 KB)
+Branches:           2422049
+Incorrect:            58425
+Misprediction Rate:   2.412
+------
+Trace: mm_1
+Approx memory usage: 28672 bits (3.50 KB)
+Branches:           3014850
+Incorrect:            62423
+Misprediction Rate:   2.071
+------
+Trace: mm_2
+Approx memory usage: 28672 bits (3.50 KB)
+Branches:           2563897
+Incorrect:           198887
+Misprediction Rate:   7.757
+------
+======
+TOURNAMENT - gh=9, lh=11, pc=12
+Trace: int_1
+Approx memory usage: 51200 bits (6.25 KB)
+Branches:           3771697
+Incorrect:           429099
+Misprediction Rate:  11.377
+------
+Trace: int_2
+Approx memory usage: 51200 bits (6.25 KB)
+Branches:           3755315
+Incorrect:            13690
+Misprediction Rate:   0.365
+------
+Trace: fp_1
+Approx memory usage: 51200 bits (6.25 KB)
+Branches:           1546797
+Incorrect:            15294
+Misprediction Rate:   0.989
+------
+Trace: fp_2
+Approx memory usage: 51200 bits (6.25 KB)
+Branches:           2422049
+Incorrect:            58433
+Misprediction Rate:   2.413
+------
+Trace: mm_1
+Approx memory usage: 51200 bits (6.25 KB)
+Branches:           3014850
+Incorrect:            59093
+Misprediction Rate:   1.960
+------
+Trace: mm_2
+Approx memory usage: 51200 bits (6.25 KB)
+Branches:           2563897
+Incorrect:           187961
+Misprediction Rate:   7.331
+------
+======
+TOURNAMENT - gh=9, lh=12, pc=9
+Trace: int_1
+Approx memory usage: 16384 bits (2.00 KB)
+Branches:           3771697
+Incorrect:           509478
+Misprediction Rate:  13.508
+------
+Trace: int_2
+Approx memory usage: 16384 bits (2.00 KB)
+Branches:           3755315
+Incorrect:            14762
+Misprediction Rate:   0.393
+------
+Trace: fp_1
+Approx memory usage: 16384 bits (2.00 KB)
+Branches:           1546797
+Incorrect:            15379
+Misprediction Rate:   0.994
+------
+Trace: fp_2
+Approx memory usage: 16384 bits (2.00 KB)
+Branches:           2422049
+Incorrect:            34479
+Misprediction Rate:   1.424
+------
+Trace: mm_1
+Approx memory usage: 16384 bits (2.00 KB)
+Branches:           3014850
+Incorrect:            63422
+Misprediction Rate:   2.104
+------
+Trace: mm_2
+Approx memory usage: 16384 bits (2.00 KB)
+Branches:           2563897
+Incorrect:           234908
+Misprediction Rate:   9.162
+------
+======
+TOURNAMENT - gh=9, lh=12, pc=10
+Trace: int_1
+Approx memory usage: 22528 bits (2.75 KB)
+Branches:           3771697
+Incorrect:           469716
+Misprediction Rate:  12.454
+------
+Trace: int_2
+Approx memory usage: 22528 bits (2.75 KB)
+Branches:           3755315
+Incorrect:            14378
+Misprediction Rate:   0.383
+------
+Trace: fp_1
+Approx memory usage: 22528 bits (2.75 KB)
+Branches:           1546797
+Incorrect:            15334
+Misprediction Rate:   0.991
+------
+Trace: fp_2
+Approx memory usage: 22528 bits (2.75 KB)
+Branches:           2422049
+Incorrect:            34478
+Misprediction Rate:   1.424
+------
+Trace: mm_1
+Approx memory usage: 22528 bits (2.75 KB)
+Branches:           3014850
+Incorrect:            48863
+Misprediction Rate:   1.621
+------
+Trace: mm_2
+Approx memory usage: 22528 bits (2.75 KB)
+Branches:           2563897
+Incorrect:           211730
+Misprediction Rate:   8.258
+------
+======
+TOURNAMENT - gh=9, lh=12, pc=11
+Trace: int_1
+Approx memory usage: 34816 bits (4.25 KB)
+Branches:           3771697
+Incorrect:           439510
+Misprediction Rate:  11.653
+------
+Trace: int_2
+Approx memory usage: 34816 bits (4.25 KB)
+Branches:           3755315
+Incorrect:            13579
+Misprediction Rate:   0.362
+------
+Trace: fp_1
+Approx memory usage: 34816 bits (4.25 KB)
+Branches:           1546797
+Incorrect:            15314
+Misprediction Rate:   0.990
+------
+Trace: fp_2
+Approx memory usage: 34816 bits (4.25 KB)
+Branches:           2422049
+Incorrect:             9895
+Misprediction Rate:   0.409
+------
+Trace: mm_1
+Approx memory usage: 34816 bits (4.25 KB)
+Branches:           3014850
+Incorrect:            46311
+Misprediction Rate:   1.536
+------
+Trace: mm_2
+Approx memory usage: 34816 bits (4.25 KB)
+Branches:           2563897
+Incorrect:           195346
+Misprediction Rate:   7.619
+------
+======
+TOURNAMENT - gh=9, lh=12, pc=12
+Trace: int_1
+Approx memory usage: 59392 bits (7.25 KB)
+Branches:           3771697
+Incorrect:           427262
+Misprediction Rate:  11.328
+------
+Trace: int_2
+Approx memory usage: 59392 bits (7.25 KB)
+Branches:           3755315
+Incorrect:            13141
+Misprediction Rate:   0.350
+------
+Trace: fp_1
+Approx memory usage: 59392 bits (7.25 KB)
+Branches:           1546797
+Incorrect:            15295
+Misprediction Rate:   0.989
+------
+Trace: fp_2
+Approx memory usage: 59392 bits (7.25 KB)
+Branches:           2422049
+Incorrect:             9893
+Misprediction Rate:   0.408
+------
+Trace: mm_1
+Approx memory usage: 59392 bits (7.25 KB)
+Branches:           3014850
+Incorrect:            44287
+Misprediction Rate:   1.469
+------
+Trace: mm_2
+Approx memory usage: 59392 bits (7.25 KB)
+Branches:           2563897
+Incorrect:           184215
+Misprediction Rate:   7.185
+------
+======
+TOURNAMENT - gh=10, lh=9, pc=9
+Trace: int_1
+Approx memory usage: 9728 bits (1.19 KB)
+Branches:           3771697
+Incorrect:           484524
+Misprediction Rate:  12.846
+------
+Trace: int_2
+Approx memory usage: 9728 bits (1.19 KB)
+Branches:           3755315
+Incorrect:            16521
+Misprediction Rate:   0.440
+------
+Trace: fp_1
+Approx memory usage: 9728 bits (1.19 KB)
+Branches:           1546797
+Incorrect:            15349
+Misprediction Rate:   0.992
+------
+Trace: fp_2
+Approx memory usage: 9728 bits (1.19 KB)
+Branches:           2422049
+Incorrect:            76386
+Misprediction Rate:   3.154
+------
+Trace: mm_1
+Approx memory usage: 9728 bits (1.19 KB)
+Branches:           3014850
+Incorrect:           121503
+Misprediction Rate:   4.030
+------
+Trace: mm_2
+Approx memory usage: 9728 bits (1.19 KB)
+Branches:           2563897
+Incorrect:           233891
+Misprediction Rate:   9.122
+------
+======
+TOURNAMENT - gh=10, lh=9, pc=10
+Trace: int_1
+Approx memory usage: 14336 bits (1.75 KB)
+Branches:           3771697
+Incorrect:           447633
+Misprediction Rate:  11.868
+------
+Trace: int_2
+Approx memory usage: 14336 bits (1.75 KB)
+Branches:           3755315
+Incorrect:            15915
+Misprediction Rate:   0.424
+------
+Trace: fp_1
+Approx memory usage: 14336 bits (1.75 KB)
+Branches:           1546797
+Incorrect:            15323
+Misprediction Rate:   0.991
+------
+Trace: fp_2
+Approx memory usage: 14336 bits (1.75 KB)
+Branches:           2422049
+Incorrect:            76384
+Misprediction Rate:   3.154
+------
+Trace: mm_1
+Approx memory usage: 14336 bits (1.75 KB)
+Branches:           3014850
+Incorrect:           100316
+Misprediction Rate:   3.327
+------
+Trace: mm_2
+Approx memory usage: 14336 bits (1.75 KB)
+Branches:           2563897
+Incorrect:           213456
+Misprediction Rate:   8.325
+------
+======
+TOURNAMENT - gh=10, lh=9, pc=11
+Trace: int_1
+Approx memory usage: 23552 bits (2.88 KB)
+Branches:           3771697
+Incorrect:           421103
+Misprediction Rate:  11.165
+------
+Trace: int_2
+Approx memory usage: 23552 bits (2.88 KB)
+Branches:           3755315
+Incorrect:            15068
+Misprediction Rate:   0.401
+------
+Trace: fp_1
+Approx memory usage: 23552 bits (2.88 KB)
+Branches:           1546797
+Incorrect:            15308
+Misprediction Rate:   0.990
+------
+Trace: fp_2
+Approx memory usage: 23552 bits (2.88 KB)
+Branches:           2422049
+Incorrect:            51804
+Misprediction Rate:   2.139
+------
+Trace: mm_1
+Approx memory usage: 23552 bits (2.88 KB)
+Branches:           3014850
+Incorrect:           100126
+Misprediction Rate:   3.321
+------
+Trace: mm_2
+Approx memory usage: 23552 bits (2.88 KB)
+Branches:           2563897
+Incorrect:           198537
+Misprediction Rate:   7.744
+------
+======
+TOURNAMENT - gh=10, lh=9, pc=12
+Trace: int_1
+Approx memory usage: 41984 bits (5.12 KB)
+Branches:           3771697
+Incorrect:           411616
+Misprediction Rate:  10.913
+------
+Trace: int_2
+Approx memory usage: 41984 bits (5.12 KB)
+Branches:           3755315
+Incorrect:            14471
+Misprediction Rate:   0.385
+------
+Trace: fp_1
+Approx memory usage: 41984 bits (5.12 KB)
+Branches:           1546797
+Incorrect:            15299
+Misprediction Rate:   0.989
+------
+Trace: fp_2
+Approx memory usage: 41984 bits (5.12 KB)
+Branches:           2422049
+Incorrect:            51815
+Misprediction Rate:   2.139
+------
+Trace: mm_1
+Approx memory usage: 41984 bits (5.12 KB)
+Branches:           3014850
+Incorrect:            94378
+Misprediction Rate:   3.130
+------
+Trace: mm_2
+Approx memory usage: 41984 bits (5.12 KB)
+Branches:           2563897
+Incorrect:           188969
+Misprediction Rate:   7.370
+------
+======
+TOURNAMENT - gh=10, lh=10, pc=9
+Trace: int_1
+Approx memory usage: 11264 bits (1.38 KB)
+Branches:           3771697
+Incorrect:           480300
+Misprediction Rate:  12.734
+------
+Trace: int_2
+Approx memory usage: 11264 bits (1.38 KB)
+Branches:           3755315
+Incorrect:            16064
+Misprediction Rate:   0.428
+------
+Trace: fp_1
+Approx memory usage: 11264 bits (1.38 KB)
+Branches:           1546797
+Incorrect:            15357
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 11264 bits (1.38 KB)
+Branches:           2422049
+Incorrect:            80337
+Misprediction Rate:   3.317
+------
+Trace: mm_1
+Approx memory usage: 11264 bits (1.38 KB)
+Branches:           3014850
+Incorrect:            75588
+Misprediction Rate:   2.507
+------
+Trace: mm_2
+Approx memory usage: 11264 bits (1.38 KB)
+Branches:           2563897
+Incorrect:           231526
+Misprediction Rate:   9.030
+------
+======
+TOURNAMENT - gh=10, lh=10, pc=10
+Trace: int_1
+Approx memory usage: 16384 bits (2.00 KB)
+Branches:           3771697
+Incorrect:           444250
+Misprediction Rate:  11.779
+------
+Trace: int_2
+Approx memory usage: 16384 bits (2.00 KB)
+Branches:           3755315
+Incorrect:            15404
+Misprediction Rate:   0.410
+------
+Trace: fp_1
+Approx memory usage: 16384 bits (2.00 KB)
+Branches:           1546797
+Incorrect:            15325
+Misprediction Rate:   0.991
+------
+Trace: fp_2
+Approx memory usage: 16384 bits (2.00 KB)
+Branches:           2422049
+Incorrect:            80335
+Misprediction Rate:   3.317
+------
+Trace: mm_1
+Approx memory usage: 16384 bits (2.00 KB)
+Branches:           3014850
+Incorrect:            59903
+Misprediction Rate:   1.987
+------
+Trace: mm_2
+Approx memory usage: 16384 bits (2.00 KB)
+Branches:           2563897
+Incorrect:           211411
+Misprediction Rate:   8.246
+------
+======
+TOURNAMENT - gh=10, lh=10, pc=11
+Trace: int_1
+Approx memory usage: 26624 bits (3.25 KB)
+Branches:           3771697
+Incorrect:           418152
+Misprediction Rate:  11.087
+------
+Trace: int_2
+Approx memory usage: 26624 bits (3.25 KB)
+Branches:           3755315
+Incorrect:            14565
+Misprediction Rate:   0.388
+------
+Trace: fp_1
+Approx memory usage: 26624 bits (3.25 KB)
+Branches:           1546797
+Incorrect:            15310
+Misprediction Rate:   0.990
+------
+Trace: fp_2
+Approx memory usage: 26624 bits (3.25 KB)
+Branches:           2422049
+Incorrect:            51827
+Misprediction Rate:   2.140
+------
+Trace: mm_1
+Approx memory usage: 26624 bits (3.25 KB)
+Branches:           3014850
+Incorrect:            56942
+Misprediction Rate:   1.889
+------
+Trace: mm_2
+Approx memory usage: 26624 bits (3.25 KB)
+Branches:           2563897
+Incorrect:           196530
+Misprediction Rate:   7.665
+------
+======
+TOURNAMENT - gh=10, lh=10, pc=12
+Trace: int_1
+Approx memory usage: 47104 bits (5.75 KB)
+Branches:           3771697
+Incorrect:           408459
+Misprediction Rate:  10.830
+------
+Trace: int_2
+Approx memory usage: 47104 bits (5.75 KB)
+Branches:           3755315
+Incorrect:            13976
+Misprediction Rate:   0.372
+------
+Trace: fp_1
+Approx memory usage: 47104 bits (5.75 KB)
+Branches:           1546797
+Incorrect:            15301
+Misprediction Rate:   0.989
+------
+Trace: fp_2
+Approx memory usage: 47104 bits (5.75 KB)
+Branches:           2422049
+Incorrect:            51819
+Misprediction Rate:   2.139
+------
+Trace: mm_1
+Approx memory usage: 47104 bits (5.75 KB)
+Branches:           3014850
+Incorrect:            52865
+Misprediction Rate:   1.753
+------
+Trace: mm_2
+Approx memory usage: 47104 bits (5.75 KB)
+Branches:           2563897
+Incorrect:           187028
+Misprediction Rate:   7.295
+------
+======
+TOURNAMENT - gh=10, lh=11, pc=9
+Trace: int_1
+Approx memory usage: 13824 bits (1.69 KB)
+Branches:           3771697
+Incorrect:           478038
+Misprediction Rate:  12.674
+------
+Trace: int_2
+Approx memory usage: 13824 bits (1.69 KB)
+Branches:           3755315
+Incorrect:            15585
+Misprediction Rate:   0.415
+------
+Trace: fp_1
+Approx memory usage: 13824 bits (1.69 KB)
+Branches:           1546797
+Incorrect:            15363
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 13824 bits (1.69 KB)
+Branches:           2422049
+Incorrect:            88629
+Misprediction Rate:   3.659
+------
+Trace: mm_1
+Approx memory usage: 13824 bits (1.69 KB)
+Branches:           3014850
+Incorrect:            70424
+Misprediction Rate:   2.336
+------
+Trace: mm_2
+Approx memory usage: 13824 bits (1.69 KB)
+Branches:           2563897
+Incorrect:           229546
+Misprediction Rate:   8.953
+------
+======
+TOURNAMENT - gh=10, lh=11, pc=10
+Trace: int_1
+Approx memory usage: 19456 bits (2.38 KB)
+Branches:           3771697
+Incorrect:           442128
+Misprediction Rate:  11.722
+------
+Trace: int_2
+Approx memory usage: 19456 bits (2.38 KB)
+Branches:           3755315
+Incorrect:            14632
+Misprediction Rate:   0.390
+------
+Trace: fp_1
+Approx memory usage: 19456 bits (2.38 KB)
+Branches:           1546797
+Incorrect:            15329
+Misprediction Rate:   0.991
+------
+Trace: fp_2
+Approx memory usage: 19456 bits (2.38 KB)
+Branches:           2422049
+Incorrect:            88627
+Misprediction Rate:   3.659
+------
+Trace: mm_1
+Approx memory usage: 19456 bits (2.38 KB)
+Branches:           3014850
+Incorrect:            53157
+Misprediction Rate:   1.763
+------
+Trace: mm_2
+Approx memory usage: 19456 bits (2.38 KB)
+Branches:           2563897
+Incorrect:           208942
+Misprediction Rate:   8.149
+------
+======
+TOURNAMENT - gh=10, lh=11, pc=11
+Trace: int_1
+Approx memory usage: 30720 bits (3.75 KB)
+Branches:           3771697
+Incorrect:           414836
+Misprediction Rate:  10.999
+------
+Trace: int_2
+Approx memory usage: 30720 bits (3.75 KB)
+Branches:           3755315
+Incorrect:            13954
+Misprediction Rate:   0.372
+------
+Trace: fp_1
+Approx memory usage: 30720 bits (3.75 KB)
+Branches:           1546797
+Incorrect:            15313
+Misprediction Rate:   0.990
+------
+Trace: fp_2
+Approx memory usage: 30720 bits (3.75 KB)
+Branches:           2422049
+Incorrect:            60119
+Misprediction Rate:   2.482
+------
+Trace: mm_1
+Approx memory usage: 30720 bits (3.75 KB)
+Branches:           3014850
+Incorrect:            51493
+Misprediction Rate:   1.708
+------
+Trace: mm_2
+Approx memory usage: 30720 bits (3.75 KB)
+Branches:           2563897
+Incorrect:           194345
+Misprediction Rate:   7.580
+------
+======
+TOURNAMENT - gh=10, lh=11, pc=12
+Trace: int_1
+Approx memory usage: 53248 bits (6.50 KB)
+Branches:           3771697
+Incorrect:           405158
+Misprediction Rate:  10.742
+------
+Trace: int_2
+Approx memory usage: 53248 bits (6.50 KB)
+Branches:           3755315
+Incorrect:            13339
+Misprediction Rate:   0.355
+------
+Trace: fp_1
+Approx memory usage: 53248 bits (6.50 KB)
+Branches:           1546797
+Incorrect:            15302
+Misprediction Rate:   0.989
+------
+Trace: fp_2
+Approx memory usage: 53248 bits (6.50 KB)
+Branches:           2422049
+Incorrect:            60141
+Misprediction Rate:   2.483
+------
+Trace: mm_1
+Approx memory usage: 53248 bits (6.50 KB)
+Branches:           3014850
+Incorrect:            48271
+Misprediction Rate:   1.601
+------
+Trace: mm_2
+Approx memory usage: 53248 bits (6.50 KB)
+Branches:           2563897
+Incorrect:           184571
+Misprediction Rate:   7.199
+------
+======
+TOURNAMENT - gh=10, lh=12, pc=9
+Trace: int_1
+Approx memory usage: 18432 bits (2.25 KB)
+Branches:           3771697
+Incorrect:           474873
+Misprediction Rate:  12.590
+------
+Trace: int_2
+Approx memory usage: 18432 bits (2.25 KB)
+Branches:           3755315
+Incorrect:            14311
+Misprediction Rate:   0.381
+------
+Trace: fp_1
+Approx memory usage: 18432 bits (2.25 KB)
+Branches:           1546797
+Incorrect:            15363
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 18432 bits (2.25 KB)
+Branches:           2422049
+Incorrect:            34507
+Misprediction Rate:   1.425
+------
+Trace: mm_1
+Approx memory usage: 18432 bits (2.25 KB)
+Branches:           3014850
+Incorrect:            47715
+Misprediction Rate:   1.583
+------
+Trace: mm_2
+Approx memory usage: 18432 bits (2.25 KB)
+Branches:           2563897
+Incorrect:           226635
+Misprediction Rate:   8.839
+------
+======
+TOURNAMENT - gh=10, lh=12, pc=10
+Trace: int_1
+Approx memory usage: 24576 bits (3.00 KB)
+Branches:           3771697
+Incorrect:           440049
+Misprediction Rate:  11.667
+------
+Trace: int_2
+Approx memory usage: 24576 bits (3.00 KB)
+Branches:           3755315
+Incorrect:            13914
+Misprediction Rate:   0.371
+------
+Trace: fp_1
+Approx memory usage: 24576 bits (3.00 KB)
+Branches:           1546797
+Incorrect:            15332
+Misprediction Rate:   0.991
+------
+Trace: fp_2
+Approx memory usage: 24576 bits (3.00 KB)
+Branches:           2422049
+Incorrect:            34505
+Misprediction Rate:   1.425
+------
+Trace: mm_1
+Approx memory usage: 24576 bits (3.00 KB)
+Branches:           3014850
+Incorrect:            34467
+Misprediction Rate:   1.143
+------
+Trace: mm_2
+Approx memory usage: 24576 bits (3.00 KB)
+Branches:           2563897
+Incorrect:           205441
+Misprediction Rate:   8.013
+------
+======
+TOURNAMENT - gh=10, lh=12, pc=11
+Trace: int_1
+Approx memory usage: 36864 bits (4.50 KB)
+Branches:           3771697
+Incorrect:           413401
+Misprediction Rate:  10.961
+------
+Trace: int_2
+Approx memory usage: 36864 bits (4.50 KB)
+Branches:           3755315
+Incorrect:            13258
+Misprediction Rate:   0.353
+------
+Trace: fp_1
+Approx memory usage: 36864 bits (4.50 KB)
+Branches:           1546797
+Incorrect:            15316
+Misprediction Rate:   0.990
+------
+Trace: fp_2
+Approx memory usage: 36864 bits (4.50 KB)
+Branches:           2422049
+Incorrect:             9921
+Misprediction Rate:   0.410
+------
+Trace: mm_1
+Approx memory usage: 36864 bits (4.50 KB)
+Branches:           3014850
+Incorrect:            34011
+Misprediction Rate:   1.128
+------
+Trace: mm_2
+Approx memory usage: 36864 bits (4.50 KB)
+Branches:           2563897
+Incorrect:           190963
+Misprediction Rate:   7.448
+------
+======
+TOURNAMENT - gh=10, lh=12, pc=12
+Trace: int_1
+Approx memory usage: 61440 bits (7.50 KB)
+Branches:           3771697
+Incorrect:           403866
+Misprediction Rate:  10.708
+------
+Trace: int_2
+Approx memory usage: 61440 bits (7.50 KB)
+Branches:           3755315
+Incorrect:            12820
+Misprediction Rate:   0.341
+------
+Trace: fp_1
+Approx memory usage: 61440 bits (7.50 KB)
+Branches:           1546797
+Incorrect:            15305
+Misprediction Rate:   0.989
+------
+Trace: fp_2
+Approx memory usage: 61440 bits (7.50 KB)
+Branches:           2422049
+Incorrect:             9920
+Misprediction Rate:   0.410
+------
+Trace: mm_1
+Approx memory usage: 61440 bits (7.50 KB)
+Branches:           3014850
+Incorrect:            32125
+Misprediction Rate:   1.066
+------
+Trace: mm_2
+Approx memory usage: 61440 bits (7.50 KB)
+Branches:           2563897
+Incorrect:           181226
+Misprediction Rate:   7.068
+------
+======
+TOURNAMENT - gh=11, lh=9, pc=9
+Trace: int_1
+Approx memory usage: 13824 bits (1.69 KB)
+Branches:           3771697
+Incorrect:           448092
+Misprediction Rate:  11.880
+------
+Trace: int_2
+Approx memory usage: 13824 bits (1.69 KB)
+Branches:           3755315
+Incorrect:            15905
+Misprediction Rate:   0.424
+------
+Trace: fp_1
+Approx memory usage: 13824 bits (1.69 KB)
+Branches:           1546797
+Incorrect:            15339
+Misprediction Rate:   0.992
+------
+Trace: fp_2
+Approx memory usage: 13824 bits (1.69 KB)
+Branches:           2422049
+Incorrect:            73633
+Misprediction Rate:   3.040
+------
+Trace: mm_1
+Approx memory usage: 13824 bits (1.69 KB)
+Branches:           3014850
+Incorrect:           101317
+Misprediction Rate:   3.361
+------
+Trace: mm_2
+Approx memory usage: 13824 bits (1.69 KB)
+Branches:           2563897
+Incorrect:           225229
+Misprediction Rate:   8.785
+------
+======
+TOURNAMENT - gh=11, lh=9, pc=10
+Trace: int_1
+Approx memory usage: 18432 bits (2.25 KB)
+Branches:           3771697
+Incorrect:           420148
+Misprediction Rate:  11.139
+------
+Trace: int_2
+Approx memory usage: 18432 bits (2.25 KB)
+Branches:           3755315
+Incorrect:            15315
+Misprediction Rate:   0.408
+------
+Trace: fp_1
+Approx memory usage: 18432 bits (2.25 KB)
+Branches:           1546797
+Incorrect:            15320
+Misprediction Rate:   0.990
+------
+Trace: fp_2
+Approx memory usage: 18432 bits (2.25 KB)
+Branches:           2422049
+Incorrect:            73630
+Misprediction Rate:   3.040
+------
+Trace: mm_1
+Approx memory usage: 18432 bits (2.25 KB)
+Branches:           3014850
+Incorrect:            84043
+Misprediction Rate:   2.788
+------
+Trace: mm_2
+Approx memory usage: 18432 bits (2.25 KB)
+Branches:           2563897
+Incorrect:           208161
+Misprediction Rate:   8.119
+------
+======
+TOURNAMENT - gh=11, lh=9, pc=11
+Trace: int_1
+Approx memory usage: 27648 bits (3.38 KB)
+Branches:           3771697
+Incorrect:           397123
+Misprediction Rate:  10.529
+------
+Trace: int_2
+Approx memory usage: 27648 bits (3.38 KB)
+Branches:           3755315
+Incorrect:            14542
+Misprediction Rate:   0.387
+------
+Trace: fp_1
+Approx memory usage: 27648 bits (3.38 KB)
+Branches:           1546797
+Incorrect:            15318
+Misprediction Rate:   0.990
+------
+Trace: fp_2
+Approx memory usage: 27648 bits (3.38 KB)
+Branches:           2422049
+Incorrect:            49049
+Misprediction Rate:   2.025
+------
+Trace: mm_1
+Approx memory usage: 27648 bits (3.38 KB)
+Branches:           3014850
+Incorrect:            86114
+Misprediction Rate:   2.856
+------
+Trace: mm_2
+Approx memory usage: 27648 bits (3.38 KB)
+Branches:           2563897
+Incorrect:           194519
+Misprediction Rate:   7.587
+------
+======
+TOURNAMENT - gh=11, lh=9, pc=12
+Trace: int_1
+Approx memory usage: 46080 bits (5.62 KB)
+Branches:           3771697
+Incorrect:           389030
+Misprediction Rate:  10.314
+------
+Trace: int_2
+Approx memory usage: 46080 bits (5.62 KB)
+Branches:           3755315
+Incorrect:            14108
+Misprediction Rate:   0.376
+------
+Trace: fp_1
+Approx memory usage: 46080 bits (5.62 KB)
+Branches:           1546797
+Incorrect:            15306
+Misprediction Rate:   0.990
+------
+Trace: fp_2
+Approx memory usage: 46080 bits (5.62 KB)
+Branches:           2422049
+Incorrect:            49033
+Misprediction Rate:   2.024
+------
+Trace: mm_1
+Approx memory usage: 46080 bits (5.62 KB)
+Branches:           3014850
+Incorrect:            85759
+Misprediction Rate:   2.845
+------
+Trace: mm_2
+Approx memory usage: 46080 bits (5.62 KB)
+Branches:           2563897
+Incorrect:           185868
+Misprediction Rate:   7.249
+------
+======
+TOURNAMENT - gh=11, lh=10, pc=9
+Trace: int_1
+Approx memory usage: 15360 bits (1.88 KB)
+Branches:           3771697
+Incorrect:           444977
+Misprediction Rate:  11.798
+------
+Trace: int_2
+Approx memory usage: 15360 bits (1.88 KB)
+Branches:           3755315
+Incorrect:            15511
+Misprediction Rate:   0.413
+------
+Trace: fp_1
+Approx memory usage: 15360 bits (1.88 KB)
+Branches:           1546797
+Incorrect:            15343
+Misprediction Rate:   0.992
+------
+Trace: fp_2
+Approx memory usage: 15360 bits (1.88 KB)
+Branches:           2422049
+Incorrect:            77569
+Misprediction Rate:   3.203
+------
+Trace: mm_1
+Approx memory usage: 15360 bits (1.88 KB)
+Branches:           3014850
+Incorrect:            61320
+Misprediction Rate:   2.034
+------
+Trace: mm_2
+Approx memory usage: 15360 bits (1.88 KB)
+Branches:           2563897
+Incorrect:           223224
+Misprediction Rate:   8.706
+------
+======
+TOURNAMENT - gh=11, lh=10, pc=10
+Trace: int_1
+Approx memory usage: 20480 bits (2.50 KB)
+Branches:           3771697
+Incorrect:           417444
+Misprediction Rate:  11.068
+------
+Trace: int_2
+Approx memory usage: 20480 bits (2.50 KB)
+Branches:           3755315
+Incorrect:            14862
+Misprediction Rate:   0.396
+------
+Trace: fp_1
+Approx memory usage: 20480 bits (2.50 KB)
+Branches:           1546797
+Incorrect:            15322
+Misprediction Rate:   0.991
+------
+Trace: fp_2
+Approx memory usage: 20480 bits (2.50 KB)
+Branches:           2422049
+Incorrect:            77566
+Misprediction Rate:   3.202
+------
+Trace: mm_1
+Approx memory usage: 20480 bits (2.50 KB)
+Branches:           3014850
+Incorrect:            53889
+Misprediction Rate:   1.787
+------
+Trace: mm_2
+Approx memory usage: 20480 bits (2.50 KB)
+Branches:           2563897
+Incorrect:           205939
+Misprediction Rate:   8.032
+------
+======
+TOURNAMENT - gh=11, lh=10, pc=11
+Trace: int_1
+Approx memory usage: 30720 bits (3.75 KB)
+Branches:           3771697
+Incorrect:           394837
+Misprediction Rate:  10.468
+------
+Trace: int_2
+Approx memory usage: 30720 bits (3.75 KB)
+Branches:           3755315
+Incorrect:            14017
+Misprediction Rate:   0.373
+------
+Trace: fp_1
+Approx memory usage: 30720 bits (3.75 KB)
+Branches:           1546797
+Incorrect:            15320
+Misprediction Rate:   0.990
+------
+Trace: fp_2
+Approx memory usage: 30720 bits (3.75 KB)
+Branches:           2422049
+Incorrect:            49072
+Misprediction Rate:   2.026
+------
+Trace: mm_1
+Approx memory usage: 30720 bits (3.75 KB)
+Branches:           3014850
+Incorrect:            50055
+Misprediction Rate:   1.660
+------
+Trace: mm_2
+Approx memory usage: 30720 bits (3.75 KB)
+Branches:           2563897
+Incorrect:           192636
+Misprediction Rate:   7.513
+------
+======
+TOURNAMENT - gh=11, lh=10, pc=12
+Trace: int_1
+Approx memory usage: 51200 bits (6.25 KB)
+Branches:           3771697
+Incorrect:           386446
+Misprediction Rate:  10.246
+------
+Trace: int_2
+Approx memory usage: 51200 bits (6.25 KB)
+Branches:           3755315
+Incorrect:            13631
+Misprediction Rate:   0.363
+------
+Trace: fp_1
+Approx memory usage: 51200 bits (6.25 KB)
+Branches:           1546797
+Incorrect:            15308
+Misprediction Rate:   0.990
+------
+Trace: fp_2
+Approx memory usage: 51200 bits (6.25 KB)
+Branches:           2422049
+Incorrect:            49035
+Misprediction Rate:   2.025
+------
+Trace: mm_1
+Approx memory usage: 51200 bits (6.25 KB)
+Branches:           3014850
+Incorrect:            47969
+Misprediction Rate:   1.591
+------
+Trace: mm_2
+Approx memory usage: 51200 bits (6.25 KB)
+Branches:           2563897
+Incorrect:           184020
+Misprediction Rate:   7.177
+------
+======
+TOURNAMENT - gh=11, lh=11, pc=9
+Trace: int_1
+Approx memory usage: 17920 bits (2.19 KB)
+Branches:           3771697
+Incorrect:           443002
+Misprediction Rate:  11.745
+------
+Trace: int_2
+Approx memory usage: 17920 bits (2.19 KB)
+Branches:           3755315
+Incorrect:            15047
+Misprediction Rate:   0.401
+------
+Trace: fp_1
+Approx memory usage: 17920 bits (2.19 KB)
+Branches:           1546797
+Incorrect:            15349
+Misprediction Rate:   0.992
+------
+Trace: fp_2
+Approx memory usage: 17920 bits (2.19 KB)
+Branches:           2422049
+Incorrect:            85844
+Misprediction Rate:   3.544
+------
+Trace: mm_1
+Approx memory usage: 17920 bits (2.19 KB)
+Branches:           3014850
+Incorrect:            58110
+Misprediction Rate:   1.927
+------
+Trace: mm_2
+Approx memory usage: 17920 bits (2.19 KB)
+Branches:           2563897
+Incorrect:           221477
+Misprediction Rate:   8.638
+------
+======
+TOURNAMENT - gh=11, lh=11, pc=10
+Trace: int_1
+Approx memory usage: 23552 bits (2.88 KB)
+Branches:           3771697
+Incorrect:           415427
+Misprediction Rate:  11.014
+------
+Trace: int_2
+Approx memory usage: 23552 bits (2.88 KB)
+Branches:           3755315
+Incorrect:            14142
+Misprediction Rate:   0.377
+------
+Trace: fp_1
+Approx memory usage: 23552 bits (2.88 KB)
+Branches:           1546797
+Incorrect:            15324
+Misprediction Rate:   0.991
+------
+Trace: fp_2
+Approx memory usage: 23552 bits (2.88 KB)
+Branches:           2422049
+Incorrect:            85842
+Misprediction Rate:   3.544
+------
+Trace: mm_1
+Approx memory usage: 23552 bits (2.88 KB)
+Branches:           3014850
+Incorrect:            48042
+Misprediction Rate:   1.594
+------
+Trace: mm_2
+Approx memory usage: 23552 bits (2.88 KB)
+Branches:           2563897
+Incorrect:           204068
+Misprediction Rate:   7.959
+------
+======
+TOURNAMENT - gh=11, lh=11, pc=11
+Trace: int_1
+Approx memory usage: 34816 bits (4.25 KB)
+Branches:           3771697
+Incorrect:           391908
+Misprediction Rate:  10.391
+------
+Trace: int_2
+Approx memory usage: 34816 bits (4.25 KB)
+Branches:           3755315
+Incorrect:            13423
+Misprediction Rate:   0.357
+------
+Trace: fp_1
+Approx memory usage: 34816 bits (4.25 KB)
+Branches:           1546797
+Incorrect:            15321
+Misprediction Rate:   0.990
+------
+Trace: fp_2
+Approx memory usage: 34816 bits (4.25 KB)
+Branches:           2422049
+Incorrect:            57348
+Misprediction Rate:   2.368
+------
+Trace: mm_1
+Approx memory usage: 34816 bits (4.25 KB)
+Branches:           3014850
+Incorrect:            46141
+Misprediction Rate:   1.530
+------
+Trace: mm_2
+Approx memory usage: 34816 bits (4.25 KB)
+Branches:           2563897
+Incorrect:           190711
+Misprediction Rate:   7.438
+------
+======
+TOURNAMENT - gh=11, lh=11, pc=12
+Trace: int_1
+Approx memory usage: 57344 bits (7.00 KB)
+Branches:           3771697
+Incorrect:           383528
+Misprediction Rate:  10.169
+------
+Trace: int_2
+Approx memory usage: 57344 bits (7.00 KB)
+Branches:           3755315
+Incorrect:            13011
+Misprediction Rate:   0.346
+------
+Trace: fp_1
+Approx memory usage: 57344 bits (7.00 KB)
+Branches:           1546797
+Incorrect:            15308
+Misprediction Rate:   0.990
+------
+Trace: fp_2
+Approx memory usage: 57344 bits (7.00 KB)
+Branches:           2422049
+Incorrect:            57354
+Misprediction Rate:   2.368
+------
+Trace: mm_1
+Approx memory usage: 57344 bits (7.00 KB)
+Branches:           3014850
+Incorrect:            44907
+Misprediction Rate:   1.490
+------
+Trace: mm_2
+Approx memory usage: 57344 bits (7.00 KB)
+Branches:           2563897
+Incorrect:           181786
+Misprediction Rate:   7.090
+------
+======
+TOURNAMENT - gh=11, lh=12, pc=9
+Trace: int_1
+Approx memory usage: 22528 bits (2.75 KB)
+Branches:           3771697
+Incorrect:           441075
+Misprediction Rate:  11.694
+------
+Trace: int_2
+Approx memory usage: 22528 bits (2.75 KB)
+Branches:           3755315
+Incorrect:            13886
+Misprediction Rate:   0.370
+------
+Trace: fp_1
+Approx memory usage: 22528 bits (2.75 KB)
+Branches:           1546797
+Incorrect:            15351
+Misprediction Rate:   0.992
+------
+Trace: fp_2
+Approx memory usage: 22528 bits (2.75 KB)
+Branches:           2422049
+Incorrect:            34519
+Misprediction Rate:   1.425
+------
+Trace: mm_1
+Approx memory usage: 22528 bits (2.75 KB)
+Branches:           3014850
+Incorrect:            43139
+Misprediction Rate:   1.431
+------
+Trace: mm_2
+Approx memory usage: 22528 bits (2.75 KB)
+Branches:           2563897
+Incorrect:           218896
+Misprediction Rate:   8.538
+------
+======
+TOURNAMENT - gh=11, lh=12, pc=10
+Trace: int_1
+Approx memory usage: 28672 bits (3.50 KB)
+Branches:           3771697
+Incorrect:           414640
+Misprediction Rate:  10.993
+------
+Trace: int_2
+Approx memory usage: 28672 bits (3.50 KB)
+Branches:           3755315
+Incorrect:            13496
+Misprediction Rate:   0.359
+------
+Trace: fp_1
+Approx memory usage: 28672 bits (3.50 KB)
+Branches:           1546797
+Incorrect:            15329
+Misprediction Rate:   0.991
+------
+Trace: fp_2
+Approx memory usage: 28672 bits (3.50 KB)
+Branches:           2422049
+Incorrect:            34516
+Misprediction Rate:   1.425
+------
+Trace: mm_1
+Approx memory usage: 28672 bits (3.50 KB)
+Branches:           3014850
+Incorrect:            34645
+Misprediction Rate:   1.149
+------
+Trace: mm_2
+Approx memory usage: 28672 bits (3.50 KB)
+Branches:           2563897
+Incorrect:           200839
+Misprediction Rate:   7.833
+------
+======
+TOURNAMENT - gh=11, lh=12, pc=11
+Trace: int_1
+Approx memory usage: 40960 bits (5.00 KB)
+Branches:           3771697
+Incorrect:           391902
+Misprediction Rate:  10.391
+------
+Trace: int_2
+Approx memory usage: 40960 bits (5.00 KB)
+Branches:           3755315
+Incorrect:            12852
+Misprediction Rate:   0.342
+------
+Trace: fp_1
+Approx memory usage: 40960 bits (5.00 KB)
+Branches:           1546797
+Incorrect:            15326
+Misprediction Rate:   0.991
+------
+Trace: fp_2
+Approx memory usage: 40960 bits (5.00 KB)
+Branches:           2422049
+Incorrect:             9934
+Misprediction Rate:   0.410
+------
+Trace: mm_1
+Approx memory usage: 40960 bits (5.00 KB)
+Branches:           3014850
+Incorrect:            33779
+Misprediction Rate:   1.120
+------
+Trace: mm_2
+Approx memory usage: 40960 bits (5.00 KB)
+Branches:           2563897
+Incorrect:           187535
+Misprediction Rate:   7.314
+------
+======
+TOURNAMENT - gh=11, lh=12, pc=12
+Trace: int_1
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           3771697
+Incorrect:           383636
+Misprediction Rate:  10.171
+------
+Trace: int_2
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           3755315
+Incorrect:            12511
+Misprediction Rate:   0.333
+------
+Trace: fp_1
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           1546797
+Incorrect:            15313
+Misprediction Rate:   0.990
+------
+Trace: fp_2
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           2422049
+Incorrect:             9933
+Misprediction Rate:   0.410
+------
+Trace: mm_1
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           3014850
+Incorrect:            32307
+Misprediction Rate:   1.072
+------
+Trace: mm_2
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           2563897
+Incorrect:           178621
+Misprediction Rate:   6.967
+------
+======
+TOURNAMENT - gh=12, lh=9, pc=9
+Trace: int_1
+Approx memory usage: 22016 bits (2.69 KB)
+Branches:           3771697
+Incorrect:           416664
+Misprediction Rate:  11.047
+------
+Trace: int_2
+Approx memory usage: 22016 bits (2.69 KB)
+Branches:           3755315
+Incorrect:            15376
+Misprediction Rate:   0.409
+------
+Trace: fp_1
+Approx memory usage: 22016 bits (2.69 KB)
+Branches:           1546797
+Incorrect:            15356
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 22016 bits (2.69 KB)
+Branches:           2422049
+Incorrect:            73088
+Misprediction Rate:   3.018
+------
+Trace: mm_1
+Approx memory usage: 22016 bits (2.69 KB)
+Branches:           3014850
+Incorrect:            94827
+Misprediction Rate:   3.145
+------
+Trace: mm_2
+Approx memory usage: 22016 bits (2.69 KB)
+Branches:           2563897
+Incorrect:           216803
+Misprediction Rate:   8.456
+------
+======
+TOURNAMENT - gh=12, lh=9, pc=10
+Trace: int_1
+Approx memory usage: 26624 bits (3.25 KB)
+Branches:           3771697
+Incorrect:           392199
+Misprediction Rate:  10.398
+------
+Trace: int_2
+Approx memory usage: 26624 bits (3.25 KB)
+Branches:           3755315
+Incorrect:            14703
+Misprediction Rate:   0.392
+------
+Trace: fp_1
+Approx memory usage: 26624 bits (3.25 KB)
+Branches:           1546797
+Incorrect:            15334
+Misprediction Rate:   0.991
+------
+Trace: fp_2
+Approx memory usage: 26624 bits (3.25 KB)
+Branches:           2422049
+Incorrect:            73084
+Misprediction Rate:   3.017
+------
+Trace: mm_1
+Approx memory usage: 26624 bits (3.25 KB)
+Branches:           3014850
+Incorrect:            78362
+Misprediction Rate:   2.599
+------
+Trace: mm_2
+Approx memory usage: 26624 bits (3.25 KB)
+Branches:           2563897
+Incorrect:           200600
+Misprediction Rate:   7.824
+------
+======
+TOURNAMENT - gh=12, lh=9, pc=11
+Trace: int_1
+Approx memory usage: 35840 bits (4.38 KB)
+Branches:           3771697
+Incorrect:           375779
+Misprediction Rate:   9.963
+------
+Trace: int_2
+Approx memory usage: 35840 bits (4.38 KB)
+Branches:           3755315
+Incorrect:            14006
+Misprediction Rate:   0.373
+------
+Trace: fp_1
+Approx memory usage: 35840 bits (4.38 KB)
+Branches:           1546797
+Incorrect:            15331
+Misprediction Rate:   0.991
+------
+Trace: fp_2
+Approx memory usage: 35840 bits (4.38 KB)
+Branches:           2422049
+Incorrect:            48503
+Misprediction Rate:   2.003
+------
+Trace: mm_1
+Approx memory usage: 35840 bits (4.38 KB)
+Branches:           3014850
+Incorrect:            79535
+Misprediction Rate:   2.638
+------
+Trace: mm_2
+Approx memory usage: 35840 bits (4.38 KB)
+Branches:           2563897
+Incorrect:           188829
+Misprediction Rate:   7.365
+------
+======
+TOURNAMENT - gh=12, lh=9, pc=12
+Trace: int_1
+Approx memory usage: 54272 bits (6.62 KB)
+Branches:           3771697
+Incorrect:           368153
+Misprediction Rate:   9.761
+------
+Trace: int_2
+Approx memory usage: 54272 bits (6.62 KB)
+Branches:           3755315
+Incorrect:            13682
+Misprediction Rate:   0.364
+------
+Trace: fp_1
+Approx memory usage: 54272 bits (6.62 KB)
+Branches:           1546797
+Incorrect:            15325
+Misprediction Rate:   0.991
+------
+Trace: fp_2
+Approx memory usage: 54272 bits (6.62 KB)
+Branches:           2422049
+Incorrect:            48487
+Misprediction Rate:   2.002
+------
+Trace: mm_1
+Approx memory usage: 54272 bits (6.62 KB)
+Branches:           3014850
+Incorrect:            79371
+Misprediction Rate:   2.633
+------
+Trace: mm_2
+Approx memory usage: 54272 bits (6.62 KB)
+Branches:           2563897
+Incorrect:           180449
+Misprediction Rate:   7.038
+------
+======
+TOURNAMENT - gh=12, lh=10, pc=9
+Trace: int_1
+Approx memory usage: 23552 bits (2.88 KB)
+Branches:           3771697
+Incorrect:           413715
+Misprediction Rate:  10.969
+------
+Trace: int_2
+Approx memory usage: 23552 bits (2.88 KB)
+Branches:           3755315
+Incorrect:            14917
+Misprediction Rate:   0.397
+------
+Trace: fp_1
+Approx memory usage: 23552 bits (2.88 KB)
+Branches:           1546797
+Incorrect:            15359
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 23552 bits (2.88 KB)
+Branches:           2422049
+Incorrect:            77004
+Misprediction Rate:   3.179
+------
+Trace: mm_1
+Approx memory usage: 23552 bits (2.88 KB)
+Branches:           3014850
+Incorrect:            57641
+Misprediction Rate:   1.912
+------
+Trace: mm_2
+Approx memory usage: 23552 bits (2.88 KB)
+Branches:           2563897
+Incorrect:           214832
+Misprediction Rate:   8.379
+------
+======
+TOURNAMENT - gh=12, lh=10, pc=10
+Trace: int_1
+Approx memory usage: 28672 bits (3.50 KB)
+Branches:           3771697
+Incorrect:           389911
+Misprediction Rate:  10.338
+------
+Trace: int_2
+Approx memory usage: 28672 bits (3.50 KB)
+Branches:           3755315
+Incorrect:            14355
+Misprediction Rate:   0.382
+------
+Trace: fp_1
+Approx memory usage: 28672 bits (3.50 KB)
+Branches:           1546797
+Incorrect:            15336
+Misprediction Rate:   0.991
+------
+Trace: fp_2
+Approx memory usage: 28672 bits (3.50 KB)
+Branches:           2422049
+Incorrect:            77000
+Misprediction Rate:   3.179
+------
+Trace: mm_1
+Approx memory usage: 28672 bits (3.50 KB)
+Branches:           3014850
+Incorrect:            51060
+Misprediction Rate:   1.694
+------
+Trace: mm_2
+Approx memory usage: 28672 bits (3.50 KB)
+Branches:           2563897
+Incorrect:           198492
+Misprediction Rate:   7.742
+------
+======
+TOURNAMENT - gh=12, lh=10, pc=11
+Trace: int_1
+Approx memory usage: 38912 bits (4.75 KB)
+Branches:           3771697
+Incorrect:           373603
+Misprediction Rate:   9.905
+------
+Trace: int_2
+Approx memory usage: 38912 bits (4.75 KB)
+Branches:           3755315
+Incorrect:            13577
+Misprediction Rate:   0.362
+------
+Trace: fp_1
+Approx memory usage: 38912 bits (4.75 KB)
+Branches:           1546797
+Incorrect:            15333
+Misprediction Rate:   0.991
+------
+Trace: fp_2
+Approx memory usage: 38912 bits (4.75 KB)
+Branches:           2422049
+Incorrect:            48507
+Misprediction Rate:   2.003
+------
+Trace: mm_1
+Approx memory usage: 38912 bits (4.75 KB)
+Branches:           3014850
+Incorrect:            47436
+Misprediction Rate:   1.573
+------
+Trace: mm_2
+Approx memory usage: 38912 bits (4.75 KB)
+Branches:           2563897
+Incorrect:           186852
+Misprediction Rate:   7.288
+------
+======
+TOURNAMENT - gh=12, lh=10, pc=12
+Trace: int_1
+Approx memory usage: 59392 bits (7.25 KB)
+Branches:           3771697
+Incorrect:           365787
+Misprediction Rate:   9.698
+------
+Trace: int_2
+Approx memory usage: 59392 bits (7.25 KB)
+Branches:           3755315
+Incorrect:            13241
+Misprediction Rate:   0.353
+------
+Trace: fp_1
+Approx memory usage: 59392 bits (7.25 KB)
+Branches:           1546797
+Incorrect:            15328
+Misprediction Rate:   0.991
+------
+Trace: fp_2
+Approx memory usage: 59392 bits (7.25 KB)
+Branches:           2422049
+Incorrect:            48489
+Misprediction Rate:   2.002
+------
+Trace: mm_1
+Approx memory usage: 59392 bits (7.25 KB)
+Branches:           3014850
+Incorrect:            46122
+Misprediction Rate:   1.530
+------
+Trace: mm_2
+Approx memory usage: 59392 bits (7.25 KB)
+Branches:           2563897
+Incorrect:           178513
+Misprediction Rate:   6.963
+------
+======
+TOURNAMENT - gh=12, lh=11, pc=9
+Trace: int_1
+Approx memory usage: 26112 bits (3.19 KB)
+Branches:           3771697
+Incorrect:           412509
+Misprediction Rate:  10.937
+------
+Trace: int_2
+Approx memory usage: 26112 bits (3.19 KB)
+Branches:           3755315
+Incorrect:            14672
+Misprediction Rate:   0.391
+------
+Trace: fp_1
+Approx memory usage: 26112 bits (3.19 KB)
+Branches:           1546797
+Incorrect:            15363
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 26112 bits (3.19 KB)
+Branches:           2422049
+Incorrect:            85326
+Misprediction Rate:   3.523
+------
+Trace: mm_1
+Approx memory usage: 26112 bits (3.19 KB)
+Branches:           3014850
+Incorrect:            53361
+Misprediction Rate:   1.770
+------
+Trace: mm_2
+Approx memory usage: 26112 bits (3.19 KB)
+Branches:           2563897
+Incorrect:           213670
+Misprediction Rate:   8.334
+------
+======
+TOURNAMENT - gh=12, lh=11, pc=10
+Trace: int_1
+Approx memory usage: 31744 bits (3.88 KB)
+Branches:           3771697
+Incorrect:           388484
+Misprediction Rate:  10.300
+------
+Trace: int_2
+Approx memory usage: 31744 bits (3.88 KB)
+Branches:           3755315
+Incorrect:            13895
+Misprediction Rate:   0.370
+------
+Trace: fp_1
+Approx memory usage: 31744 bits (3.88 KB)
+Branches:           1546797
+Incorrect:            15337
+Misprediction Rate:   0.992
+------
+Trace: fp_2
+Approx memory usage: 31744 bits (3.88 KB)
+Branches:           2422049
+Incorrect:            85323
+Misprediction Rate:   3.523
+------
+Trace: mm_1
+Approx memory usage: 31744 bits (3.88 KB)
+Branches:           3014850
+Incorrect:            46062
+Misprediction Rate:   1.528
+------
+Trace: mm_2
+Approx memory usage: 31744 bits (3.88 KB)
+Branches:           2563897
+Incorrect:           197070
+Misprediction Rate:   7.686
+------
+======
+TOURNAMENT - gh=12, lh=11, pc=11
+Trace: int_1
+Approx memory usage: 43008 bits (5.25 KB)
+Branches:           3771697
+Incorrect:           371091
+Misprediction Rate:   9.839
+------
+Trace: int_2
+Approx memory usage: 43008 bits (5.25 KB)
+Branches:           3755315
+Incorrect:            13154
+Misprediction Rate:   0.350
+------
+Trace: fp_1
+Approx memory usage: 43008 bits (5.25 KB)
+Branches:           1546797
+Incorrect:            15333
+Misprediction Rate:   0.991
+------
+Trace: fp_2
+Approx memory usage: 43008 bits (5.25 KB)
+Branches:           2422049
+Incorrect:            56830
+Misprediction Rate:   2.346
+------
+Trace: mm_1
+Approx memory usage: 43008 bits (5.25 KB)
+Branches:           3014850
+Incorrect:            43888
+Misprediction Rate:   1.456
+------
+Trace: mm_2
+Approx memory usage: 43008 bits (5.25 KB)
+Branches:           2563897
+Incorrect:           185369
+Misprediction Rate:   7.230
+------
+======
+TOURNAMENT - gh=12, lh=11, pc=12
+Trace: int_1
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           3771697
+Incorrect:           363419
+Misprediction Rate:   9.635
+------
+Trace: int_2
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           3755315
+Incorrect:            12795
+Misprediction Rate:   0.341
+------
+Trace: fp_1
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           1546797
+Incorrect:            15328
+Misprediction Rate:   0.991
+------
+Trace: fp_2
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           2422049
+Incorrect:            56830
+Misprediction Rate:   2.346
+------
+Trace: mm_1
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           3014850
+Incorrect:            42601
+Misprediction Rate:   1.413
+------
+Trace: mm_2
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           2563897
+Incorrect:           176787
+Misprediction Rate:   6.895
+------
+======
+TOURNAMENT - gh=12, lh=12, pc=9
+Trace: int_1
+Approx memory usage: 30720 bits (3.75 KB)
+Branches:           3771697
+Incorrect:           410491
+Misprediction Rate:  10.883
+------
+Trace: int_2
+Approx memory usage: 30720 bits (3.75 KB)
+Branches:           3755315
+Incorrect:            13522
+Misprediction Rate:   0.360
+------
+Trace: fp_1
+Approx memory usage: 30720 bits (3.75 KB)
+Branches:           1546797
+Incorrect:            15378
+Misprediction Rate:   0.994
+------
+Trace: fp_2
+Approx memory usage: 30720 bits (3.75 KB)
+Branches:           2422049
+Incorrect:            34535
+Misprediction Rate:   1.426
+------
+Trace: mm_1
+Approx memory usage: 30720 bits (3.75 KB)
+Branches:           3014850
+Incorrect:            39518
+Misprediction Rate:   1.311
+------
+Trace: mm_2
+Approx memory usage: 30720 bits (3.75 KB)
+Branches:           2563897
+Incorrect:           211248
+Misprediction Rate:   8.239
+------
+======
+TOURNAMENT - gh=12, lh=12, pc=10
+Trace: int_1
+Approx memory usage: 36864 bits (4.50 KB)
+Branches:           3771697
+Incorrect:           387578
+Misprediction Rate:  10.276
+------
+Trace: int_2
+Approx memory usage: 36864 bits (4.50 KB)
+Branches:           3755315
+Incorrect:            13312
+Misprediction Rate:   0.354
+------
+Trace: fp_1
+Approx memory usage: 36864 bits (4.50 KB)
+Branches:           1546797
+Incorrect:            15353
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 36864 bits (4.50 KB)
+Branches:           2422049
+Incorrect:            34531
+Misprediction Rate:   1.426
+------
+Trace: mm_1
+Approx memory usage: 36864 bits (4.50 KB)
+Branches:           3014850
+Incorrect:            30099
+Misprediction Rate:   0.998
+------
+Trace: mm_2
+Approx memory usage: 36864 bits (4.50 KB)
+Branches:           2563897
+Incorrect:           194326
+Misprediction Rate:   7.579
+------
+======
+TOURNAMENT - gh=12, lh=12, pc=11
+Trace: int_1
+Approx memory usage: 49152 bits (6.00 KB)
+Branches:           3771697
+Incorrect:           370331
+Misprediction Rate:   9.819
+------
+Trace: int_2
+Approx memory usage: 49152 bits (6.00 KB)
+Branches:           3755315
+Incorrect:            12615
+Misprediction Rate:   0.336
+------
+Trace: fp_1
+Approx memory usage: 49152 bits (6.00 KB)
+Branches:           1546797
+Incorrect:            15349
+Misprediction Rate:   0.992
+------
+Trace: fp_2
+Approx memory usage: 49152 bits (6.00 KB)
+Branches:           2422049
+Incorrect:             9949
+Misprediction Rate:   0.411
+------
+Trace: mm_1
+Approx memory usage: 49152 bits (6.00 KB)
+Branches:           3014850
+Incorrect:            30214
+Misprediction Rate:   1.002
+------
+Trace: mm_2
+Approx memory usage: 49152 bits (6.00 KB)
+Branches:           2563897
+Incorrect:           182423
+Misprediction Rate:   7.115
+------
+======
+TOURNAMENT - gh=12, lh=12, pc=12
+Trace: int_1
+Approx memory usage: 73728 bits (9.00 KB)
+Branches:           3771697
+Incorrect:           362656
+Misprediction Rate:   9.615
+------
+Trace: int_2
+Approx memory usage: 73728 bits (9.00 KB)
+Branches:           3755315
+Incorrect:            12363
+Misprediction Rate:   0.329
+------
+Trace: fp_1
+Approx memory usage: 73728 bits (9.00 KB)
+Branches:           1546797
+Incorrect:            15344
+Misprediction Rate:   0.992
+------
+Trace: fp_2
+Approx memory usage: 73728 bits (9.00 KB)
+Branches:           2422049
+Incorrect:             9949
+Misprediction Rate:   0.411
+------
+Trace: mm_1
+Approx memory usage: 73728 bits (9.00 KB)
+Branches:           3014850
+Incorrect:            28725
+Misprediction Rate:   0.953
+------
+Trace: mm_2
+Approx memory usage: 73728 bits (9.00 KB)
+Branches:           2563897
+Incorrect:           173937
+Misprediction Rate:   6.784
+------
+======
+TOURNAMENT - gh=13, lh=9, pc=9
+Trace: int_1
+Approx memory usage: 38400 bits (4.69 KB)
+Branches:           3771697
+Incorrect:           394190
+Misprediction Rate:  10.451
+------
+Trace: int_2
+Approx memory usage: 38400 bits (4.69 KB)
+Branches:           3755315
+Incorrect:            14999
+Misprediction Rate:   0.399
+------
+Trace: fp_1
+Approx memory usage: 38400 bits (4.69 KB)
+Branches:           1546797
+Incorrect:            15368
+Misprediction Rate:   0.994
+------
+Trace: fp_2
+Approx memory usage: 38400 bits (4.69 KB)
+Branches:           2422049
+Incorrect:            54141
+Misprediction Rate:   2.235
+------
+Trace: mm_1
+Approx memory usage: 38400 bits (4.69 KB)
+Branches:           3014850
+Incorrect:            85391
+Misprediction Rate:   2.832
+------
+Trace: mm_2
+Approx memory usage: 38400 bits (4.69 KB)
+Branches:           2563897
+Incorrect:           202965
+Misprediction Rate:   7.916
+------
+======
+TOURNAMENT - gh=13, lh=9, pc=10
+Trace: int_1
+Approx memory usage: 43008 bits (5.25 KB)
+Branches:           3771697
+Incorrect:           372209
+Misprediction Rate:   9.868
+------
+Trace: int_2
+Approx memory usage: 43008 bits (5.25 KB)
+Branches:           3755315
+Incorrect:            14324
+Misprediction Rate:   0.381
+------
+Trace: fp_1
+Approx memory usage: 43008 bits (5.25 KB)
+Branches:           1546797
+Incorrect:            15346
+Misprediction Rate:   0.992
+------
+Trace: fp_2
+Approx memory usage: 43008 bits (5.25 KB)
+Branches:           2422049
+Incorrect:            54138
+Misprediction Rate:   2.235
+------
+Trace: mm_1
+Approx memory usage: 43008 bits (5.25 KB)
+Branches:           3014850
+Incorrect:            71917
+Misprediction Rate:   2.385
+------
+Trace: mm_2
+Approx memory usage: 43008 bits (5.25 KB)
+Branches:           2563897
+Incorrect:           188999
+Misprediction Rate:   7.372
+------
+======
+TOURNAMENT - gh=13, lh=9, pc=11
+Trace: int_1
+Approx memory usage: 52224 bits (6.38 KB)
+Branches:           3771697
+Incorrect:           358794
+Misprediction Rate:   9.513
+------
+Trace: int_2
+Approx memory usage: 52224 bits (6.38 KB)
+Branches:           3755315
+Incorrect:            13738
+Misprediction Rate:   0.366
+------
+Trace: fp_1
+Approx memory usage: 52224 bits (6.38 KB)
+Branches:           1546797
+Incorrect:            15339
+Misprediction Rate:   0.992
+------
+Trace: fp_2
+Approx memory usage: 52224 bits (6.38 KB)
+Branches:           2422049
+Incorrect:            22835
+Misprediction Rate:   0.943
+------
+Trace: mm_1
+Approx memory usage: 52224 bits (6.38 KB)
+Branches:           3014850
+Incorrect:            71771
+Misprediction Rate:   2.381
+------
+Trace: mm_2
+Approx memory usage: 52224 bits (6.38 KB)
+Branches:           2563897
+Incorrect:           179724
+Misprediction Rate:   7.010
+------
+======
+TOURNAMENT - gh=13, lh=9, pc=12
+Trace: int_1
+Approx memory usage: 70656 bits (8.62 KB)
+Branches:           3771697
+Incorrect:           352814
+Misprediction Rate:   9.354
+------
+Trace: int_2
+Approx memory usage: 70656 bits (8.62 KB)
+Branches:           3755315
+Incorrect:            13434
+Misprediction Rate:   0.358
+------
+Trace: fp_1
+Approx memory usage: 70656 bits (8.62 KB)
+Branches:           1546797
+Incorrect:            15338
+Misprediction Rate:   0.992
+------
+Trace: fp_2
+Approx memory usage: 70656 bits (8.62 KB)
+Branches:           2422049
+Incorrect:            22837
+Misprediction Rate:   0.943
+------
+Trace: mm_1
+Approx memory usage: 70656 bits (8.62 KB)
+Branches:           3014850
+Incorrect:            73930
+Misprediction Rate:   2.452
+------
+Trace: mm_2
+Approx memory usage: 70656 bits (8.62 KB)
+Branches:           2563897
+Incorrect:           172492
+Misprediction Rate:   6.728
+------
+======
+TOURNAMENT - gh=13, lh=10, pc=9
+Trace: int_1
+Approx memory usage: 39936 bits (4.88 KB)
+Branches:           3771697
+Incorrect:           391404
+Misprediction Rate:  10.377
+------
+Trace: int_2
+Approx memory usage: 39936 bits (4.88 KB)
+Branches:           3755315
+Incorrect:            14619
+Misprediction Rate:   0.389
+------
+Trace: fp_1
+Approx memory usage: 39936 bits (4.88 KB)
+Branches:           1546797
+Incorrect:            15370
+Misprediction Rate:   0.994
+------
+Trace: fp_2
+Approx memory usage: 39936 bits (4.88 KB)
+Branches:           2422049
+Incorrect:            54751
+Misprediction Rate:   2.261
+------
+Trace: mm_1
+Approx memory usage: 39936 bits (4.88 KB)
+Branches:           3014850
+Incorrect:            52459
+Misprediction Rate:   1.740
+------
+Trace: mm_2
+Approx memory usage: 39936 bits (4.88 KB)
+Branches:           2563897
+Incorrect:           201055
+Misprediction Rate:   7.842
+------
+======
+TOURNAMENT - gh=13, lh=10, pc=10
+Trace: int_1
+Approx memory usage: 45056 bits (5.50 KB)
+Branches:           3771697
+Incorrect:           370153
+Misprediction Rate:   9.814
+------
+Trace: int_2
+Approx memory usage: 45056 bits (5.50 KB)
+Branches:           3755315
+Incorrect:            13933
+Misprediction Rate:   0.371
+------
+Trace: fp_1
+Approx memory usage: 45056 bits (5.50 KB)
+Branches:           1546797
+Incorrect:            15348
+Misprediction Rate:   0.992
+------
+Trace: fp_2
+Approx memory usage: 45056 bits (5.50 KB)
+Branches:           2422049
+Incorrect:            54748
+Misprediction Rate:   2.260
+------
+Trace: mm_1
+Approx memory usage: 45056 bits (5.50 KB)
+Branches:           3014850
+Incorrect:            45524
+Misprediction Rate:   1.510
+------
+Trace: mm_2
+Approx memory usage: 45056 bits (5.50 KB)
+Branches:           2563897
+Incorrect:           187045
+Misprediction Rate:   7.295
+------
+======
+TOURNAMENT - gh=13, lh=10, pc=11
+Trace: int_1
+Approx memory usage: 55296 bits (6.75 KB)
+Branches:           3771697
+Incorrect:           356856
+Misprediction Rate:   9.461
+------
+Trace: int_2
+Approx memory usage: 55296 bits (6.75 KB)
+Branches:           3755315
+Incorrect:            13308
+Misprediction Rate:   0.354
+------
+Trace: fp_1
+Approx memory usage: 55296 bits (6.75 KB)
+Branches:           1546797
+Incorrect:            15341
+Misprediction Rate:   0.992
+------
+Trace: fp_2
+Approx memory usage: 55296 bits (6.75 KB)
+Branches:           2422049
+Incorrect:            22859
+Misprediction Rate:   0.944
+------
+Trace: mm_1
+Approx memory usage: 55296 bits (6.75 KB)
+Branches:           3014850
+Incorrect:            42687
+Misprediction Rate:   1.416
+------
+Trace: mm_2
+Approx memory usage: 55296 bits (6.75 KB)
+Branches:           2563897
+Incorrect:           177877
+Misprediction Rate:   6.938
+------
+======
+TOURNAMENT - gh=13, lh=10, pc=12
+Trace: int_1
+Approx memory usage: 75776 bits (9.25 KB)
+Branches:           3771697
+Incorrect:           350542
+Misprediction Rate:   9.294
+------
+Trace: int_2
+Approx memory usage: 75776 bits (9.25 KB)
+Branches:           3755315
+Incorrect:            12923
+Misprediction Rate:   0.344
+------
+Trace: fp_1
+Approx memory usage: 75776 bits (9.25 KB)
+Branches:           1546797
+Incorrect:            15340
+Misprediction Rate:   0.992
+------
+Trace: fp_2
+Approx memory usage: 75776 bits (9.25 KB)
+Branches:           2422049
+Incorrect:            22842
+Misprediction Rate:   0.943
+------
+Trace: mm_1
+Approx memory usage: 75776 bits (9.25 KB)
+Branches:           3014850
+Incorrect:            41354
+Misprediction Rate:   1.372
+------
+Trace: mm_2
+Approx memory usage: 75776 bits (9.25 KB)
+Branches:           2563897
+Incorrect:           170740
+Misprediction Rate:   6.659
+------
+======
+TOURNAMENT - gh=13, lh=11, pc=9
+Trace: int_1
+Approx memory usage: 42496 bits (5.19 KB)
+Branches:           3771697
+Incorrect:           390348
+Misprediction Rate:  10.349
+------
+Trace: int_2
+Approx memory usage: 42496 bits (5.19 KB)
+Branches:           3755315
+Incorrect:            14358
+Misprediction Rate:   0.382
+------
+Trace: fp_1
+Approx memory usage: 42496 bits (5.19 KB)
+Branches:           1546797
+Incorrect:            15376
+Misprediction Rate:   0.994
+------
+Trace: fp_2
+Approx memory usage: 42496 bits (5.19 KB)
+Branches:           2422049
+Incorrect:            63090
+Misprediction Rate:   2.605
+------
+Trace: mm_1
+Approx memory usage: 42496 bits (5.19 KB)
+Branches:           3014850
+Incorrect:            47864
+Misprediction Rate:   1.588
+------
+Trace: mm_2
+Approx memory usage: 42496 bits (5.19 KB)
+Branches:           2563897
+Incorrect:           199617
+Misprediction Rate:   7.786
+------
+======
+TOURNAMENT - gh=13, lh=11, pc=10
+Trace: int_1
+Approx memory usage: 48128 bits (5.88 KB)
+Branches:           3771697
+Incorrect:           369221
+Misprediction Rate:   9.789
+------
+Trace: int_2
+Approx memory usage: 48128 bits (5.88 KB)
+Branches:           3755315
+Incorrect:            13571
+Misprediction Rate:   0.361
+------
+Trace: fp_1
+Approx memory usage: 48128 bits (5.88 KB)
+Branches:           1546797
+Incorrect:            15349
+Misprediction Rate:   0.992
+------
+Trace: fp_2
+Approx memory usage: 48128 bits (5.88 KB)
+Branches:           2422049
+Incorrect:            63086
+Misprediction Rate:   2.605
+------
+Trace: mm_1
+Approx memory usage: 48128 bits (5.88 KB)
+Branches:           3014850
+Incorrect:            39774
+Misprediction Rate:   1.319
+------
+Trace: mm_2
+Approx memory usage: 48128 bits (5.88 KB)
+Branches:           2563897
+Incorrect:           185737
+Misprediction Rate:   7.244
+------
+======
+TOURNAMENT - gh=13, lh=11, pc=11
+Trace: int_1
+Approx memory usage: 59392 bits (7.25 KB)
+Branches:           3771697
+Incorrect:           355300
+Misprediction Rate:   9.420
+------
+Trace: int_2
+Approx memory usage: 59392 bits (7.25 KB)
+Branches:           3755315
+Incorrect:            12961
+Misprediction Rate:   0.345
+------
+Trace: fp_1
+Approx memory usage: 59392 bits (7.25 KB)
+Branches:           1546797
+Incorrect:            15341
+Misprediction Rate:   0.992
+------
+Trace: fp_2
+Approx memory usage: 59392 bits (7.25 KB)
+Branches:           2422049
+Incorrect:            31197
+Misprediction Rate:   1.288
+------
+Trace: mm_1
+Approx memory usage: 59392 bits (7.25 KB)
+Branches:           3014850
+Incorrect:            38951
+Misprediction Rate:   1.292
+------
+Trace: mm_2
+Approx memory usage: 59392 bits (7.25 KB)
+Branches:           2563897
+Incorrect:           176420
+Misprediction Rate:   6.881
+------
+======
+TOURNAMENT - gh=13, lh=11, pc=12
+Trace: int_1
+Approx memory usage: 81920 bits (10.00 KB)
+Branches:           3771697
+Incorrect:           348741
+Misprediction Rate:   9.246
+------
+Trace: int_2
+Approx memory usage: 81920 bits (10.00 KB)
+Branches:           3755315
+Incorrect:            12560
+Misprediction Rate:   0.334
+------
+Trace: fp_1
+Approx memory usage: 81920 bits (10.00 KB)
+Branches:           1546797
+Incorrect:            15341
+Misprediction Rate:   0.992
+------
+Trace: fp_2
+Approx memory usage: 81920 bits (10.00 KB)
+Branches:           2422049
+Incorrect:            31198
+Misprediction Rate:   1.288
+------
+Trace: mm_1
+Approx memory usage: 81920 bits (10.00 KB)
+Branches:           3014850
+Incorrect:            37728
+Misprediction Rate:   1.251
+------
+Trace: mm_2
+Approx memory usage: 81920 bits (10.00 KB)
+Branches:           2563897
+Incorrect:           168877
+Misprediction Rate:   6.587
+------
+======
+TOURNAMENT - gh=13, lh=12, pc=9
+Trace: int_1
+Approx memory usage: 47104 bits (5.75 KB)
+Branches:           3771697
+Incorrect:           389321
+Misprediction Rate:  10.322
+------
+Trace: int_2
+Approx memory usage: 47104 bits (5.75 KB)
+Branches:           3755315
+Incorrect:            13365
+Misprediction Rate:   0.356
+------
+Trace: fp_1
+Approx memory usage: 47104 bits (5.75 KB)
+Branches:           1546797
+Incorrect:            15380
+Misprediction Rate:   0.994
+------
+Trace: fp_2
+Approx memory usage: 47104 bits (5.75 KB)
+Branches:           2422049
+Incorrect:            41267
+Misprediction Rate:   1.704
+------
+Trace: mm_1
+Approx memory usage: 47104 bits (5.75 KB)
+Branches:           3014850
+Incorrect:            33714
+Misprediction Rate:   1.118
+------
+Trace: mm_2
+Approx memory usage: 47104 bits (5.75 KB)
+Branches:           2563897
+Incorrect:           197455
+Misprediction Rate:   7.701
+------
+======
+TOURNAMENT - gh=13, lh=12, pc=10
+Trace: int_1
+Approx memory usage: 53248 bits (6.50 KB)
+Branches:           3771697
+Incorrect:           369310
+Misprediction Rate:   9.792
+------
+Trace: int_2
+Approx memory usage: 53248 bits (6.50 KB)
+Branches:           3755315
+Incorrect:            13037
+Misprediction Rate:   0.347
+------
+Trace: fp_1
+Approx memory usage: 53248 bits (6.50 KB)
+Branches:           1546797
+Incorrect:            15354
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 53248 bits (6.50 KB)
+Branches:           2422049
+Incorrect:            41264
+Misprediction Rate:   1.704
+------
+Trace: mm_1
+Approx memory usage: 53248 bits (6.50 KB)
+Branches:           3014850
+Incorrect:            23563
+Misprediction Rate:   0.782
+------
+Trace: mm_2
+Approx memory usage: 53248 bits (6.50 KB)
+Branches:           2563897
+Incorrect:           183132
+Misprediction Rate:   7.143
+------
+======
+TOURNAMENT - gh=13, lh=12, pc=11
+Trace: int_1
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           3771697
+Incorrect:           355322
+Misprediction Rate:   9.421
+------
+Trace: int_2
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           3755315
+Incorrect:            12466
+Misprediction Rate:   0.332
+------
+Trace: fp_1
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           1546797
+Incorrect:            15346
+Misprediction Rate:   0.992
+------
+Trace: fp_2
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           2422049
+Incorrect:             9960
+Misprediction Rate:   0.411
+------
+Trace: mm_1
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           3014850
+Incorrect:            25305
+Misprediction Rate:   0.839
+------
+Trace: mm_2
+Approx memory usage: 65536 bits (8.00 KB)
+Branches:           2563897
+Incorrect:           173726
+Misprediction Rate:   6.776
+------
+======
+TOURNAMENT - gh=13, lh=12, pc=12
+Trace: int_1
+Approx memory usage: 90112 bits (11.00 KB)
+Branches:           3771697
+Incorrect:           348750
+Misprediction Rate:   9.247
+------
+Trace: int_2
+Approx memory usage: 90112 bits (11.00 KB)
+Branches:           3755315
+Incorrect:            12141
+Misprediction Rate:   0.323
+------
+Trace: fp_1
+Approx memory usage: 90112 bits (11.00 KB)
+Branches:           1546797
+Incorrect:            15346
+Misprediction Rate:   0.992
+------
+Trace: fp_2
+Approx memory usage: 90112 bits (11.00 KB)
+Branches:           2422049
+Incorrect:             9960
+Misprediction Rate:   0.411
+------
+Trace: mm_1
+Approx memory usage: 90112 bits (11.00 KB)
+Branches:           3014850
+Incorrect:            23877
+Misprediction Rate:   0.792
+------
+Trace: mm_2
+Approx memory usage: 90112 bits (11.00 KB)
+Branches:           2563897
+Incorrect:           166316
+Misprediction Rate:   6.487
+------
+======
+TOURNAMENT - gh=14, lh=9, pc=9
+Trace: int_1
+Approx memory usage: 71168 bits (8.69 KB)
+Branches:           3771697
+Incorrect:           375875
+Misprediction Rate:   9.966
+------
+Trace: int_2
+Approx memory usage: 71168 bits (8.69 KB)
+Branches:           3755315
+Incorrect:            14604
+Misprediction Rate:   0.389
+------
+Trace: fp_1
+Approx memory usage: 71168 bits (8.69 KB)
+Branches:           1546797
+Incorrect:            15381
+Misprediction Rate:   0.994
+------
+Trace: fp_2
+Approx memory usage: 71168 bits (8.69 KB)
+Branches:           2422049
+Incorrect:            43254
+Misprediction Rate:   1.786
+------
+Trace: mm_1
+Approx memory usage: 71168 bits (8.69 KB)
+Branches:           3014850
+Incorrect:            79055
+Misprediction Rate:   2.622
+------
+Trace: mm_2
+Approx memory usage: 71168 bits (8.69 KB)
+Branches:           2563897
+Incorrect:           187690
+Misprediction Rate:   7.320
+------
+======
+TOURNAMENT - gh=14, lh=9, pc=10
+Trace: int_1
+Approx memory usage: 75776 bits (9.25 KB)
+Branches:           3771697
+Incorrect:           357263
+Misprediction Rate:   9.472
+------
+Trace: int_2
+Approx memory usage: 75776 bits (9.25 KB)
+Branches:           3755315
+Incorrect:            13848
+Misprediction Rate:   0.369
+------
+Trace: fp_1
+Approx memory usage: 75776 bits (9.25 KB)
+Branches:           1546797
+Incorrect:            15356
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 75776 bits (9.25 KB)
+Branches:           2422049
+Incorrect:            43251
+Misprediction Rate:   1.786
+------
+Trace: mm_1
+Approx memory usage: 75776 bits (9.25 KB)
+Branches:           3014850
+Incorrect:            67319
+Misprediction Rate:   2.233
+------
+Trace: mm_2
+Approx memory usage: 75776 bits (9.25 KB)
+Branches:           2563897
+Incorrect:           176505
+Misprediction Rate:   6.884
+------
+======
+TOURNAMENT - gh=14, lh=9, pc=11
+Trace: int_1
+Approx memory usage: 84992 bits (10.38 KB)
+Branches:           3771697
+Incorrect:           345450
+Misprediction Rate:   9.159
+------
+Trace: int_2
+Approx memory usage: 84992 bits (10.38 KB)
+Branches:           3755315
+Incorrect:            13299
+Misprediction Rate:   0.354
+------
+Trace: fp_1
+Approx memory usage: 84992 bits (10.38 KB)
+Branches:           1546797
+Incorrect:            15352
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 84992 bits (10.38 KB)
+Branches:           2422049
+Incorrect:            14970
+Misprediction Rate:   0.618
+------
+Trace: mm_1
+Approx memory usage: 84992 bits (10.38 KB)
+Branches:           3014850
+Incorrect:            69868
+Misprediction Rate:   2.317
+------
+Trace: mm_2
+Approx memory usage: 84992 bits (10.38 KB)
+Branches:           2563897
+Incorrect:           169126
+Misprediction Rate:   6.596
+------
+======
+TOURNAMENT - gh=14, lh=9, pc=12
+Trace: int_1
+Approx memory usage: 103424 bits (12.62 KB)
+Branches:           3771697
+Incorrect:           340754
+Misprediction Rate:   9.035
+------
+Trace: int_2
+Approx memory usage: 103424 bits (12.62 KB)
+Branches:           3755315
+Incorrect:            12926
+Misprediction Rate:   0.344
+------
+Trace: fp_1
+Approx memory usage: 103424 bits (12.62 KB)
+Branches:           1546797
+Incorrect:            15352
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 103424 bits (12.62 KB)
+Branches:           2422049
+Incorrect:            14970
+Misprediction Rate:   0.618
+------
+Trace: mm_1
+Approx memory usage: 103424 bits (12.62 KB)
+Branches:           3014850
+Incorrect:            73317
+Misprediction Rate:   2.432
+------
+Trace: mm_2
+Approx memory usage: 103424 bits (12.62 KB)
+Branches:           2563897
+Incorrect:           163125
+Misprediction Rate:   6.362
+------
+======
+TOURNAMENT - gh=14, lh=10, pc=9
+Trace: int_1
+Approx memory usage: 72704 bits (8.88 KB)
+Branches:           3771697
+Incorrect:           373128
+Misprediction Rate:   9.893
+------
+Trace: int_2
+Approx memory usage: 72704 bits (8.88 KB)
+Branches:           3755315
+Incorrect:            14187
+Misprediction Rate:   0.378
+------
+Trace: fp_1
+Approx memory usage: 72704 bits (8.88 KB)
+Branches:           1546797
+Incorrect:            15386
+Misprediction Rate:   0.995
+------
+Trace: fp_2
+Approx memory usage: 72704 bits (8.88 KB)
+Branches:           2422049
+Incorrect:            43861
+Misprediction Rate:   1.811
+------
+Trace: mm_1
+Approx memory usage: 72704 bits (8.88 KB)
+Branches:           3014850
+Incorrect:            48410
+Misprediction Rate:   1.606
+------
+Trace: mm_2
+Approx memory usage: 72704 bits (8.88 KB)
+Branches:           2563897
+Incorrect:           186158
+Misprediction Rate:   7.261
+------
+======
+TOURNAMENT - gh=14, lh=10, pc=10
+Trace: int_1
+Approx memory usage: 77824 bits (9.50 KB)
+Branches:           3771697
+Incorrect:           355326
+Misprediction Rate:   9.421
+------
+Trace: int_2
+Approx memory usage: 77824 bits (9.50 KB)
+Branches:           3755315
+Incorrect:            13535
+Misprediction Rate:   0.360
+------
+Trace: fp_1
+Approx memory usage: 77824 bits (9.50 KB)
+Branches:           1546797
+Incorrect:            15359
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 77824 bits (9.50 KB)
+Branches:           2422049
+Incorrect:            43858
+Misprediction Rate:   1.811
+------
+Trace: mm_1
+Approx memory usage: 77824 bits (9.50 KB)
+Branches:           3014850
+Incorrect:            44474
+Misprediction Rate:   1.475
+------
+Trace: mm_2
+Approx memory usage: 77824 bits (9.50 KB)
+Branches:           2563897
+Incorrect:           175007
+Misprediction Rate:   6.826
+------
+======
+TOURNAMENT - gh=14, lh=10, pc=11
+Trace: int_1
+Approx memory usage: 88064 bits (10.75 KB)
+Branches:           3771697
+Incorrect:           343746
+Misprediction Rate:   9.114
+------
+Trace: int_2
+Approx memory usage: 88064 bits (10.75 KB)
+Branches:           3755315
+Incorrect:            12945
+Misprediction Rate:   0.345
+------
+Trace: fp_1
+Approx memory usage: 88064 bits (10.75 KB)
+Branches:           1546797
+Incorrect:            15355
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 88064 bits (10.75 KB)
+Branches:           2422049
+Incorrect:            14991
+Misprediction Rate:   0.619
+------
+Trace: mm_1
+Approx memory usage: 88064 bits (10.75 KB)
+Branches:           3014850
+Incorrect:            42567
+Misprediction Rate:   1.412
+------
+Trace: mm_2
+Approx memory usage: 88064 bits (10.75 KB)
+Branches:           2563897
+Incorrect:           167634
+Misprediction Rate:   6.538
+------
+======
+TOURNAMENT - gh=14, lh=10, pc=12
+Trace: int_1
+Approx memory usage: 108544 bits (13.25 KB)
+Branches:           3771697
+Incorrect:           338626
+Misprediction Rate:   8.978
+------
+Trace: int_2
+Approx memory usage: 108544 bits (13.25 KB)
+Branches:           3755315
+Incorrect:            12516
+Misprediction Rate:   0.333
+------
+Trace: fp_1
+Approx memory usage: 108544 bits (13.25 KB)
+Branches:           1546797
+Incorrect:            15355
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 108544 bits (13.25 KB)
+Branches:           2422049
+Incorrect:            14973
+Misprediction Rate:   0.618
+------
+Trace: mm_1
+Approx memory usage: 108544 bits (13.25 KB)
+Branches:           3014850
+Incorrect:            40915
+Misprediction Rate:   1.357
+------
+Trace: mm_2
+Approx memory usage: 108544 bits (13.25 KB)
+Branches:           2563897
+Incorrect:           161663
+Misprediction Rate:   6.305
+------
+======
+TOURNAMENT - gh=14, lh=11, pc=9
+Trace: int_1
+Approx memory usage: 75264 bits (9.19 KB)
+Branches:           3771697
+Incorrect:           372461
+Misprediction Rate:   9.875
+------
+Trace: int_2
+Approx memory usage: 75264 bits (9.19 KB)
+Branches:           3755315
+Incorrect:            14013
+Misprediction Rate:   0.373
+------
+Trace: fp_1
+Approx memory usage: 75264 bits (9.19 KB)
+Branches:           1546797
+Incorrect:            15391
+Misprediction Rate:   0.995
+------
+Trace: fp_2
+Approx memory usage: 75264 bits (9.19 KB)
+Branches:           2422049
+Incorrect:            52332
+Misprediction Rate:   2.161
+------
+Trace: mm_1
+Approx memory usage: 75264 bits (9.19 KB)
+Branches:           3014850
+Incorrect:            43838
+Misprediction Rate:   1.454
+------
+Trace: mm_2
+Approx memory usage: 75264 bits (9.19 KB)
+Branches:           2563897
+Incorrect:           184893
+Misprediction Rate:   7.211
+------
+======
+TOURNAMENT - gh=14, lh=11, pc=10
+Trace: int_1
+Approx memory usage: 80896 bits (9.88 KB)
+Branches:           3771697
+Incorrect:           354626
+Misprediction Rate:   9.402
+------
+Trace: int_2
+Approx memory usage: 80896 bits (9.88 KB)
+Branches:           3755315
+Incorrect:            13271
+Misprediction Rate:   0.353
+------
+Trace: fp_1
+Approx memory usage: 80896 bits (9.88 KB)
+Branches:           1546797
+Incorrect:            15360
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 80896 bits (9.88 KB)
+Branches:           2422049
+Incorrect:            52330
+Misprediction Rate:   2.161
+------
+Trace: mm_1
+Approx memory usage: 80896 bits (9.88 KB)
+Branches:           3014850
+Incorrect:            39483
+Misprediction Rate:   1.310
+------
+Trace: mm_2
+Approx memory usage: 80896 bits (9.88 KB)
+Branches:           2563897
+Incorrect:           173740
+Misprediction Rate:   6.776
+------
+======
+TOURNAMENT - gh=14, lh=11, pc=11
+Trace: int_1
+Approx memory usage: 92160 bits (11.25 KB)
+Branches:           3771697
+Incorrect:           342335
+Misprediction Rate:   9.076
+------
+Trace: int_2
+Approx memory usage: 92160 bits (11.25 KB)
+Branches:           3755315
+Incorrect:            12760
+Misprediction Rate:   0.340
+------
+Trace: fp_1
+Approx memory usage: 92160 bits (11.25 KB)
+Branches:           1546797
+Incorrect:            15355
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 92160 bits (11.25 KB)
+Branches:           2422049
+Incorrect:            23463
+Misprediction Rate:   0.969
+------
+Trace: mm_1
+Approx memory usage: 92160 bits (11.25 KB)
+Branches:           3014850
+Incorrect:            38794
+Misprediction Rate:   1.287
+------
+Trace: mm_2
+Approx memory usage: 92160 bits (11.25 KB)
+Branches:           2563897
+Incorrect:           166275
+Misprediction Rate:   6.485
+------
+======
+TOURNAMENT - gh=14, lh=11, pc=12
+Trace: int_1
+Approx memory usage: 114688 bits (14.00 KB)
+Branches:           3771697
+Incorrect:           337010
+Misprediction Rate:   8.935
+------
+Trace: int_2
+Approx memory usage: 114688 bits (14.00 KB)
+Branches:           3755315
+Incorrect:            12323
+Misprediction Rate:   0.328
+------
+Trace: fp_1
+Approx memory usage: 114688 bits (14.00 KB)
+Branches:           1546797
+Incorrect:            15356
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 114688 bits (14.00 KB)
+Branches:           2422049
+Incorrect:            23469
+Misprediction Rate:   0.969
+------
+Trace: mm_1
+Approx memory usage: 114688 bits (14.00 KB)
+Branches:           3014850
+Incorrect:            37567
+Misprediction Rate:   1.246
+------
+Trace: mm_2
+Approx memory usage: 114688 bits (14.00 KB)
+Branches:           2563897
+Incorrect:           160076
+Misprediction Rate:   6.243
+------
+======
+TOURNAMENT - gh=14, lh=12, pc=9
+Trace: int_1
+Approx memory usage: 79872 bits (9.75 KB)
+Branches:           3771697
+Incorrect:           371208
+Misprediction Rate:   9.842
+------
+Trace: int_2
+Approx memory usage: 79872 bits (9.75 KB)
+Branches:           3755315
+Incorrect:            13050
+Misprediction Rate:   0.348
+------
+Trace: fp_1
+Approx memory usage: 79872 bits (9.75 KB)
+Branches:           1546797
+Incorrect:            15394
+Misprediction Rate:   0.995
+------
+Trace: fp_2
+Approx memory usage: 79872 bits (9.75 KB)
+Branches:           2422049
+Incorrect:            38258
+Misprediction Rate:   1.580
+------
+Trace: mm_1
+Approx memory usage: 79872 bits (9.75 KB)
+Branches:           3014850
+Incorrect:            31666
+Misprediction Rate:   1.050
+------
+Trace: mm_2
+Approx memory usage: 79872 bits (9.75 KB)
+Branches:           2563897
+Incorrect:           183020
+Misprediction Rate:   7.138
+------
+======
+TOURNAMENT - gh=14, lh=12, pc=10
+Trace: int_1
+Approx memory usage: 86016 bits (10.50 KB)
+Branches:           3771697
+Incorrect:           354459
+Misprediction Rate:   9.398
+------
+Trace: int_2
+Approx memory usage: 86016 bits (10.50 KB)
+Branches:           3755315
+Incorrect:            12665
+Misprediction Rate:   0.337
+------
+Trace: fp_1
+Approx memory usage: 86016 bits (10.50 KB)
+Branches:           1546797
+Incorrect:            15362
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 86016 bits (10.50 KB)
+Branches:           2422049
+Incorrect:            38255
+Misprediction Rate:   1.579
+------
+Trace: mm_1
+Approx memory usage: 86016 bits (10.50 KB)
+Branches:           3014850
+Incorrect:            23264
+Misprediction Rate:   0.772
+------
+Trace: mm_2
+Approx memory usage: 86016 bits (10.50 KB)
+Branches:           2563897
+Incorrect:           171256
+Misprediction Rate:   6.680
+------
+======
+TOURNAMENT - gh=14, lh=12, pc=11
+Trace: int_1
+Approx memory usage: 98304 bits (12.00 KB)
+Branches:           3771697
+Incorrect:           342151
+Misprediction Rate:   9.072
+------
+Trace: int_2
+Approx memory usage: 98304 bits (12.00 KB)
+Branches:           3755315
+Incorrect:            12319
+Misprediction Rate:   0.328
+------
+Trace: fp_1
+Approx memory usage: 98304 bits (12.00 KB)
+Branches:           1546797
+Incorrect:            15357
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 98304 bits (12.00 KB)
+Branches:           2422049
+Incorrect:             9973
+Misprediction Rate:   0.412
+------
+Trace: mm_1
+Approx memory usage: 98304 bits (12.00 KB)
+Branches:           3014850
+Incorrect:            24159
+Misprediction Rate:   0.801
+------
+Trace: mm_2
+Approx memory usage: 98304 bits (12.00 KB)
+Branches:           2563897
+Incorrect:           164082
+Misprediction Rate:   6.400
+------
+======
+TOURNAMENT - gh=14, lh=12, pc=12
+Trace: int_1
+Approx memory usage: 122880 bits (15.00 KB)
+Branches:           3771697
+Incorrect:           336913
+Misprediction Rate:   8.933
+------
+Trace: int_2
+Approx memory usage: 122880 bits (15.00 KB)
+Branches:           3755315
+Incorrect:            12035
+Misprediction Rate:   0.320
+------
+Trace: fp_1
+Approx memory usage: 122880 bits (15.00 KB)
+Branches:           1546797
+Incorrect:            15358
+Misprediction Rate:   0.993
+------
+Trace: fp_2
+Approx memory usage: 122880 bits (15.00 KB)
+Branches:           2422049
+Incorrect:             9973
+Misprediction Rate:   0.412
+------
+Trace: mm_1
+Approx memory usage: 122880 bits (15.00 KB)
+Branches:           3014850
+Incorrect:            22473
+Misprediction Rate:   0.745
+------
+Trace: mm_2
+Approx memory usage: 122880 bits (15.00 KB)
+Branches:           2563897
+Incorrect:           157935
+Misprediction Rate:   6.160
+------
+======
+CUSTOM TAGE tests...
+Trace: int_1
+Approx memory usage: 63250 bits (7.72 KB)
+Branches:           3771697
+Incorrect:           248521
+Misprediction Rate:   6.589
+------
+Trace: int_2
+Approx memory usage: 63250 bits (7.72 KB)
+Branches:           3755315
+Incorrect:             9598
+Misprediction Rate:   0.256
+------
+Trace: fp_1
+Approx memory usage: 63250 bits (7.72 KB)
+Branches:           1546797
+Incorrect:            11868
+Misprediction Rate:   0.767
+------
+Trace: fp_2
+Approx memory usage: 63250 bits (7.72 KB)
+Branches:           2422049
+Incorrect:             6267
+Misprediction Rate:   0.259
+------
+Trace: mm_1
+Approx memory usage: 63250 bits (7.72 KB)
+Branches:           3014850
+Incorrect:             9779
+Misprediction Rate:   0.324
+------
+Trace: mm_2
+Approx memory usage: 63250 bits (7.72 KB)
+Branches:           2563897
+Incorrect:           134363
+Misprediction Rate:   5.241
+------
+======
