@@ -54,7 +54,7 @@ G-Share, Tournament, and a Custom TAGE Implementation}
 \maketitle
 
 \begin{abstract}
-Branch prediction is a critical optimization in modern CPU microarchitecture, allowing processors to reduce pipeline stalls and improve instruction throughput. This project implements three branch predictors---G-Share, Tournament, and a custom TAGE-based predictor---within a common simulator framework. We present the overall design, implementation, experimental observations, and final results on six benchmark trace files. The TAGE predictor achieves the best accuracy, significantly outperforming simpler G-Share and Tournament schemes. Memory usage for each predictor is analyzed to ensure compliance with the 64K+256-bit constraint.
+Branch prediction is a critical optimization in modern CPU microarchitecture, allowing processors to reduce pipeline stalls and improve instruction throughput. This project implements three branch predictors: G-Share, Tournament, and a custom TAGE-based predictor, within a common simulator framework. We present the overall design, implementation, experimental observations, and final results on six benchmark trace files. The TAGE predictor achieves the best accuracy, significantly outperforming simpler G-Share and Tournament schemes. Memory usage for each predictor is analyzed to ensure compliance with the 64K+256-bit constraint.
 \end{abstract}
 
 \vspace{1em}
@@ -212,7 +212,7 @@ Beyond the final settings, we performed extended sweeps of G-Share and Tournamen
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.65\textwidth]{gshare_sweep.png}
-  \caption{G-Share Misprediction Rate vs. History Bits (8--16) for the Six Traces + Average}
+  \caption{G-Share Misprediction Rate vs. History Bits (8-16) for the Six Traces + Average}
   \label{fig:gshare_sweep}
 \end{figure}
 
@@ -223,7 +223,7 @@ Beyond the final settings, we performed extended sweeps of G-Share and Tournamen
   \label{fig:tourn_heatmap}
 \end{figure}
 
-Overall, these sweeps reveal how increasing history length generally improves accuracy but also increases storage cost. In the tournament predictor heatmaps, \texttt{pcIndexBits} around 10--12 combined with moderate \texttt{ghistoryBits} and \texttt{lhistoryBits} can yield strong performance. The sweet spot in each subfigure often balances the trade-off between local and global correlation capture.
+Overall, these sweeps reveal how increasing history length generally improves accuracy but also increases storage cost. In the tournament predictor heatmaps, \texttt{pcIndexBits} around 10-12 combined with moderate \texttt{ghistoryBits} and \texttt{lhistoryBits} can yield strong performance. The sweet spot in each subfigure often balances the trade-off between local and global correlation capture.
 
 \section{Results and Conclusion}
 
