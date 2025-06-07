@@ -1,35 +1,19 @@
-\documentclass[11pt]{article}
-\usepackage[margin=1in]{geometry}
-\usepackage{times}
-\usepackage{latexsym}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{hyperref}
-\usepackage{amsmath}
+%%
+%% This is the converted project report in the acmart sigconf format.
+%%
+\documentclass[sigconf, screen]{acmart}
+
+%%
+%% Custom packages from the original report that are still needed.
+%% acmart already loads graphicx, booktabs, hyperref, amsmath, xcolor.
+\usepackage{float}       % For the [H] option on floats
+\usepackage{fancyvrb}    % For the Verbatim environment in the appendix
+\usepackage{fvextra}   
+\usepackage{subcaption}  % For subfigures if needed, although not used in the final example
 \usepackage{fancyhdr}
-\usepackage{lastpage}
-\usepackage{subcaption}
-\usepackage{xcolor}
-\usepackage{float}
-\usepackage{fancyvrb}
+\usepackage{algorithm} 
+\usepackage{algpseudocode}
 
-% Title and Author
-\title{CSE 240A Branch Predictor Project:\\
-G-Share, Tournament, and a Custom TAGE Implementation}
-
-\author{%
-  Param Somane\thanks{Project code repository:
-  \href{https://github.com/ChestnutKurisu/CSE240A_Branch_Predictor_SP25/}%
-       {github.com/ChestnutKurisu/CSE240A\_Branch\_Predictor\_SP25}}\\
-  Department of Computer Science and Engineering \\
-  University of California, San Diego \\
-  \texttt{psomane@ucsd.edu}
-}
-
-\date{May 29, 2025}
-
-
-% For final wrap-up
 \fancypagestyle{ack_footer}{
     \fancyhf{}
     \renewcommand{\headrulewidth}{0pt}
@@ -42,252 +26,426 @@ G-Share, Tournament, and a Custom TAGE Implementation}
     }
 }
 
-% Custom Footer
-\fancypagestyle{custom_footer}{
-  \fancyhf{}
-  \rfoot{\thepage\ of \pageref{LastPage}}
-  \lfoot{\scriptsize CSE240A Branch Predictor Project (Spring 2025)}
-  \renewcommand{\headrulewidth}{0pt}
-  \renewcommand{\footrulewidth}{0pt}
-}
-\pagestyle{custom_footer}
+%%
+%% \BibTeX command to typeset BibTeX logo in the docs
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    Bib\TeX}}}
 
+%% Rights management information.
+\setcopyright{none}
+\copyrightyear{2025}
+\acmYear{2025}
+\acmDOI{XXXXXXX.XXXXXXX}
+
+%% Conference information
+\acmConference[CSE 240A Project]{CSE 240A Branch Predictor Project Report}{Spring 2025}{UC San Diego}
+\acmBooktitle{CSE 240A Branch Predictor Project Report, Spring 2025, UC San Diego}
+\acmISBN{}
+
+%%
+%% These commands remove the ACM reference format and permissions block,
+%% and add page numbers, which is more suitable for a project report.
+\settopmatter{printacmref=false}
+\settopmatter{printfolios=true}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+\pagestyle{plain}
+
+
+%%
+%% end of the preamble, start of the body of the document source.
 \begin{document}
-\maketitle
 
+%%
+%% The "title" command
+\title{CSE 240A Branch Predictor Project: G-Share, Tournament, and a Custom TAGE Implementation}
+
+%%
+%% The "author" command
+\author{Param Somane}
+\authornote{Project code repository: \href{https://github.com/ChestnutKurisu/CSE240A_Branch_Predictor_SP25/}{github.com/ChestnutKurisu/CSE240A\_Branch\_Predictor\_SP25}}
+\affiliation{%
+  \institution{Department of Computer Science and Engineering}
+  \institution{University of California, San Diego}
+  \city{La Jolla}
+  \state{CA}
+  \country{USA}
+}
+\email{psomane@ucsd.edu}
+
+
+%%
+%% The abstract is a short summary of the work to be presented in the
+%% article.
 \begin{abstract}
-Branch prediction is a critical optimization in modern CPU microarchitecture, allowing processors to reduce pipeline stalls and improve instruction throughput. This project implements three branch predictors: G-Share, Tournament, and a custom TAGE-based predictor, within a common simulator framework. We present the overall design, implementation, experimental observations, and final results on six benchmark trace files. The TAGE predictor achieves the best accuracy, significantly outperforming simpler G-Share and Tournament schemes. Memory usage for each predictor is analyzed to ensure compliance with the 64K+256-bit constraint.
+Branch prediction is a critical optimization in modern CPU microarchitecture, allowing processors to speculatively execute instructions beyond unresolved conditional branches, thereby hiding pipeline latency and improving instruction throughput. This project implements and evaluates three distinct branch predictors: G-Share, Tournament, and a custom TAGE-based predictor, all integrated within a common simulation framework. We present a detailed analysis of their design, implementation trade-offs, experimental observations on six benchmark traces, and final performance results. The custom TAGE predictor, leveraging multiple tagged tables with varying history lengths, achieves the highest accuracy, significantly outperforming the simpler G-Share and Tournament schemes. We also analyze the memory footprint of each predictor to ensure compliance with the project's 64K+256-bit constraint, demonstrating a practical approach to designing hardware-conscious predictors.
 \end{abstract}
 
-\vspace{1em}
+
+%%
+%% This command processes the author and affiliation and title
+%% information and builds the first part of the formatted document.
+\maketitle
 
 \section{Introduction}
-In modern high-performance processors, \emph{branch prediction} is used to anticipate the direction of branch instructions before they are resolved, thus reducing stall cycles caused by control hazards. Various prediction schemes exist, trading off complexity and accuracy.
+Modern processors rely on deep instruction pipelines to achieve high clock frequencies and performance. However, the effectiveness of these pipelines is severely hampered by control hazards, which arise from conditional branch instructions. When a branch is encountered, the processor must determine its outcome (taken or not-taken) and target address before it can fetch the next correct instruction. A wrong fetch stalls the pipeline, requiring a flush of all speculatively fetched instructions, which can waste dozens of cycles and significantly degrade performance.
 
-In this project, we:
+\emph{Branch prediction} is a microarchitectural technique designed to mitigate this penalty. By predicting the outcome of a branch before it is executed, the processor can speculatively fetch and execute instructions along the predicted path. An accurate prediction avoids pipeline stalls, while a misprediction still incurs the cost of a pipeline flush. The goal of a branch predictor is thus to maximize the prediction accuracy, a challenge explored in early seminal works like that of Smith \cite{yhsmith1981}, while adhering to strict hardware budget constraints (in terms of area and power).
+
+In this project, we explore the design and performance of three progressively sophisticated branch predictors:
 \begin{itemize}
-    \item Implement a \textbf{G-Share} predictor using global history registers.
-    \item Implement a \textbf{Tournament} predictor combining local and global schemes via a meta-predictor.
-    \item Propose a \textbf{Custom} TAGE-based predictor that uses multiple tagged prediction tables of differing history lengths.
+    \item \textbf{G-Share:} A classic predictor that correlates global branch history with the branch address.
+    \item \textbf{Tournament:} A hybrid predictor that dynamically selects between a local and a global predictor, adapting to the dominant correlation patterns in the workload.
+    \item \textbf{Custom (TAGE-like):} An advanced, state-of-the-art predictor that uses multiple tagged tables with geometrically increasing history lengths to capture both short- and long-term correlations.
 \end{itemize}
-Our experimentation involves six traces representing a broad range of workloads: integer, floating-point, and memory-intensive. We measure misprediction rates, memory usage, and highlight each predictor's advantages and disadvantages.
+
+This report details the implementation of each predictor, followed by a thorough experimental evaluation using six benchmark traces representing diverse workloads (integer, floating-point, and memory-intensive). We analyze misprediction rates and memory usage, culminating in a comparative study that highlights the strengths and weaknesses of each approach. The findings confirm that the increased complexity of the TAGE predictor yields substantial improvements in accuracy, justifying its adoption in high-performance processors.
 
 \section{Implementation}
 
-This section details the workings of each predictor, their configurations, and the pros and cons of each.
+This section details the working principles, data structures, and algorithmic logic for each of the three implemented predictors. All predictors were constrained to a total memory budget of 64KB + 256 bits. We also briefly discuss the historical evolution of each technique.
 
 \subsection{G-Share Predictor}
 
-\paragraph{High-Level Concept}
-G-Share uses a Global History Register (GHR) of length $N$ bits. To predict an upcoming branch, it XORs these $N$ bits of the GHR with the lower $N$ bits of the Program Counter (PC) to index into a table of 2-bit saturating counters. A typical 2-bit saturating counter has states \{\texttt{SN}, \texttt{WN}, \texttt{WT}, \texttt{ST}\}, with transitions based on whether the branch was taken or not.
+\subsubsection{High-Level Concept}
+The G-Share predictor \cite{mcfarling1993combining} evolved from earlier two-level global predictors to solve the problem of destructive aliasing. Simple global predictors used a Global History Register (GHR) to index a table of counters, but unrelated branches could map to the same entry and interfere. G-Share mitigates this by creating an index through a simple hash: it XORs the lower bits of the Program Counter (PC) with the GHR. This mixing of PC and history helps to differentiate branch patterns that would otherwise collide, leading to higher accuracy.
 
-\paragraph{Advantages}
+\subsubsection{Algorithm and Data Structures}
+The core data structures are a GHR and a Branch History Table (BHT).
 \begin{itemize}
-    \item Simple to implement and relatively compact.
-    \item Captures some global correlation via the XOR of history and PC bits.
+    \item \textbf{Global History Register (GHR):} An $N$-bit shift register that stores the outcomes of the last $N$ branches.
+    \item \textbf{Branch History Table (BHT):} An array of $2^N$ 2-bit saturating counters. Each counter can be in one of four states: Strongly Not-Taken (SN), Weakly Not-Taken (WN), Weakly Taken (WT), or Strongly Taken (ST).
 \end{itemize}
+The prediction and training logic is outlined in Algorithm \ref{alg:gshare}. The key operation is the index calculation, which is a bitwise XOR.
 
-\paragraph{Disadvantages}
-\begin{itemize}
-    \item Can suffer from \emph{aliasing} if many different branches map to the same table entries.
-    \item Does not directly capture strong local correlations.
-\end{itemize}
+\begin{algorithm}[H]
+\caption{G-Share Prediction and Training}
+\label{alg:gshare}
+\begin{algorithmic}[1]
+\Statex \textbf{Data Structures:}
+\State $GHR$: Global History Register of length $N$
+\State $BHT$: Table of $2^N$ 2-bit saturating counters, initialized to WN
+\Statex
+\Procedure{Predict}{$PC$}
+    \State $mask \gets (1 \ll N) - 1$
+    \State $index \gets (PC \land mask) \oplus (GHR \land mask)$
+    \State $counter \gets BHT[index]$
+    \If{$counter \ge WT$}
+        \State \textbf{return} TAKEN
+    \Else
+        \State \textbf{return} NOTTAKEN
+    \EndIf
+\EndProcedure
+\Statex
+\Procedure{Train}{$PC, outcome$}
+    \State $mask \gets (1 \ll N) - 1$
+    \State $index \gets (PC \land mask) \oplus (GHR \land mask)$
+    \If{$outcome = \text{TAKEN}$}
+        \State $BHT[index] \gets \min(BHT[index] + 1, ST)$
+    \Else
+        \State $BHT[index] \gets \max(BHT[index] - 1, SN)$
+    \EndIf
+    \State $GHR \gets ((GHR \ll 1) \lor outcome) \land mask$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
 
-\paragraph{Historical Evolution}
-G-Share was introduced as an improvement over basic bimodal predictors, mitigating some aliasing by mixing PC bits with a global history pattern \cite{yhsmith1981}.
+\subsubsection{Advantages and Disadvantages}
+G-Share is simple, effective, and captures global correlations that bimodal predictors miss. However, its main weakness is that destructive aliasing can still occur, as the XOR hash is not perfect.
 
 \subsection{Tournament Predictor}
 
-\paragraph{High-Level Concept}
-Tournament prediction \cite{mcfarling1993combining} blends:
-\begin{enumerate}
-    \item A \emph{Global} predictor indexed by a global history register.
-    \item A \emph{Local} predictor keyed by PC-based local histories.
-    \item A \emph{Meta-} or \emph{Choice} predictor that decides on a per-branch basis whether to trust local or global prediction.
-\end{enumerate}
+\subsubsection{High-Level Concept}
+The Tournament predictor \cite{mcfarling1993combining} addresses the observation that no single prediction scheme is optimal for all branches; some are best predicted by their own past behavior (local history), while others depend on the behavior of other recent branches (global history). It combines a local and a global predictor and uses a "choice" predictor to dynamically select the best one for a given branch context. This hybrid approach proved highly successful and was famously implemented in the DEC Alpha 21264 microprocessor \cite{kessler1999alpha}.
 
-\paragraph{Advantages}
+\subsubsection{Algorithm and Data Structures}
+The Tournament predictor requires three main components:
 \begin{itemize}
-    \item Adapts to both local and global correlation patterns within the same workload.
-    \item Often achieves better accuracy than a purely global or purely local approach.
+    \item \textbf{Local Predictor:} A two-level structure. A Pattern History Table (PHT), indexed by the PC, stores a local history for individual branches. This local history then indexes a Local BHT of 2-bit counters.
+    \item \textbf{Global Predictor:} A G-Share-style predictor with its own GHR and BHT.
+    \item \textbf{Choice Predictor:} A table of 2-bit counters, indexed by the GHR. These counters track which predictor (local or global) has been more accurate. A value of \{SN, WN\} favors the global predictor, while \{WT, ST\} favors the local predictor.
 \end{itemize}
+The prediction and training logic is detailed in Algorithm \ref{alg:tournament}.
 
-\paragraph{Disadvantages}
-\begin{itemize}
-    \item More storage overhead (multiple tables) compared to G-Share alone.
-    \item Must keep track of and update three separate structures: global, local, and choice.
-\end{itemize}
+\begin{algorithm}[H]
+\caption{Tournament Prediction and Training Logic}
+\label{alg:tournament}
+\begin{algorithmic}[1]
+\Procedure{Predict}{$PC$}
+    \State \textit{// Get predictions from both components}
+    \State $pred_{local} \gets \text{LocalPredictor.Predict}(PC)$
+    \State $pred_{global} \gets \text{GlobalPredictor.Predict}(PC)$
+    \Statex
+    \State \textit{// Consult the choice predictor}
+    \State $gh\_idx \gets GHR \land \text{mask}$
+    \State $choice \gets ChoicePT[gh\_idx]$
+    \If{$choice \ge WT$} \Comment{Choice favors Local}
+        \State \textbf{return} $pred_{local}$
+    \Else \Comment{Choice favors Global}
+        \State \textbf{return} $pred_{global}$
+    \EndIf
+\EndProcedure
+\Statex
+\Procedure{Train}{$PC, outcome, pred_{local}, pred_{global}$}
+    \State \textit{// Train the component predictors unconditionally}
+    \State LocalPredictor.Train($PC, outcome$)
+    \State GlobalPredictor.Train($PC, outcome$)
+    \Statex
+    \State \textit{// Update the choice predictor only if components disagreed}
+    \If{$pred_{local} \neq pred_{global}$}
+        \State $gh\_idx \gets GHR \land \text{mask}$
+        \If{$pred_{local} = outcome$} \Comment{Local was right}
+             \State ChoicePT[$gh\_idx$]++ \Comment{Increment toward Local}
+        \ElsIf{$pred_{global} = outcome$} \Comment{Global was right}
+             \State ChoicePT[$gh\_idx$]-- \Comment{Decrement toward Global}
+        \EndIf
+    \EndIf
+    \State $GHR \gets ((GHR \ll 1) \lor outcome) \land \text{mask}$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
 
-\paragraph{Historical Evolution}
-First proposed by McFarling \cite{mcfarling1993combining}, the basic tournament approach is still used in contemporary commercial designs (with additional enhancements and refinements).
+\subsubsection{Advantages and Disadvantages}
+The key advantage of the Tournament predictor is its adaptability, achieving high accuracy on diverse workloads. Its main disadvantage is its higher storage cost and complexity compared to G-Share.
 
 \subsection{Custom TAGE Predictor}
 
-\paragraph{High-Level Concept}
-The TAGE (\textbf{TA}gged \textbf{GE}ometric) family \cite{seznec2006cottage,seznec2007tage,seznec2011} extends the idea of combining multiple predictor components with \emph{tagged} tables, each using differently \emph{geometrically increasing} history lengths. TAGE tracks short- and long-range history segments in parallel. When a misprediction occurs, it dynamically decides if and how to allocate new entries in one of these tagged tables.
+\subsubsection{High-Level Concept}
+TAGE (TAgged GEometric history length) \cite{seznec2006cottage} is a state-of-the-art predictor that evolved from earlier geometric history length predictors (like O-GEHL). It uses multiple predictor tables, each indexed with a different, geometrically increasing length of global history. Its key innovation is the use of tags to combat aliasing. Instead of combining predictions from all tables, TAGE performs a hierarchical lookup: it uses the prediction from the table with the longest history that has a matching tag. If no tagged table matches, it falls back to a simple base bimodal predictor. This design is inspired by Prediction by Partial Matching (PPM) data compression algorithms.
 
-\paragraph{Advantages}
+Our custom implementation is a TAGE-like predictor with the following components:
 \begin{itemize}
-    \item State-of-the-art accuracy on many benchmark suites.
-    \item Adapts well to varying branch behaviors and path-based correlation.
+    \item A base \textbf{bimodal predictor} used as a fallback.
+    \item A set of \textbf{tagged predictor banks} ($T_0, \dots, T_k$). Bank $T_i$ is indexed using a hash of the PC and a compressed version of the last $L_i$ branch outcomes, where the history lengths $L_i$ form a geometric series. Each entry stores a prediction counter, a tag, and a "usefulness" counter.
 \end{itemize}
 
-\paragraph{Disadvantages}
+Prediction in TAGE involves a prioritized search, as outlined in Algorithm \ref{alg:tage_logic}. The predictor looks for a tag match in all banks, from the one with the longest history ($T_k$) down to the shortest ($T_0$). The bank with the longest history that provides a tag match becomes the \textbf{primary provider} ($T_{prim}$), while the next-longest match becomes the \textbf{alternate provider} ($T_{alt}$). If no tagged bank matches, the bimodal predictor is used. The final prediction is typically from $T_{prim}$, but a simple meta-predictor may choose the alternate prediction if the primary prediction is weak (e.g., counter near zero and low usefulness), preventing newly allocated entries from causing mispredictions.
+
+Training is more sophisticated. The counter of the provider bank is updated based on the actual outcome. A "usefulness" counter is also updated; it is incremented only if the TAGE prediction was correct AND the alternate prediction was wrong, thus rewarding entries that uniquely fix mispredictions. Most importantly, on a misprediction, the predictor attempts to allocate a new entry in a tagged bank, prioritizing the overwriting of entries with a usefulness of zero. This dynamic allocation allows the predictor to adapt to new branch patterns while discarding entries that are no longer useful.
+
+\subsubsection{Prediction Algorithm}
+Prediction (Algorithm \ref{alg:tage_logic}) involves a prioritized search. The predictor looks for a tag match in all banks, from longest history ($T_k$) to shortest ($T_0$).
+\begin{enumerate}
+    \item The bank with the longest history that provides a tag match is the \textbf{primary provider} ($T_{prim}$).
+    \item The bank with the next-longest history that provides a match is the \textbf{alternate provider} ($T_{alt}$).
+    \item If no tagged bank produces a match, the bimodal predictor provides the prediction.
+    \item The final prediction is usually from $T_{prim}$. However, a simple meta-predictor may choose the alternate prediction if the primary prediction is very weak (counter near zero and low usefulness), preventing newly allocated entries from causing mispredictions.
+\end{enumerate}
+
+\subsubsection{Training and Allocation}
+Training in TAGE is sophisticated (Algorithm \ref{alg:tage_logic}).
 \begin{itemize}
-    \item Complex design and more sophisticated update policies.
-    \item Requires careful parameter tuning to remain within hardware budgets (e.g., 64K bits).
+    \item \textbf{Counter Update:} The saturating counter of the bank that provided the prediction is updated.
+    \item \textbf{Usefulness Update:} To track an entry's value, a "usefulness" counter is updated. This counter is incremented only if the TAGE prediction was correct AND the alternate prediction was wrong. It is decremented otherwise. This rewards entries that fix mispredictions.
+    \item \textbf{Allocation on Mispredict:} If the final prediction was wrong, the predictor attempts to allocate a new entry in one of the tagged banks. It prioritizes overwriting entries that have a usefulness of zero. This dynamic allocation allows the predictor to learn new, complex branch patterns over time while discarding entries that are no longer useful.
 \end{itemize}
 
-\paragraph{Historical Evolution}
-TAGE and its variants have repeatedly topped academic branch predictor competitions. Seznec~\cite{seznec2007tage} demonstrated that properly tuned TAGE-style predictors approach very low misprediction rates while respecting hardware constraints.
+\begin{algorithm}[H]
+\caption{TAGE Prediction and Training Logic}
+\label{alg:tage_logic}
+\begin{algorithmic}[1]
+\Statex \textbf{Data:} Bimodal table $B$, Tagged Banks $T_0..T_k$
+\Procedure{Predict}{$PC$}
+    \State Find provider bank $T_{prim}$ (longest history match)
+    \State Find alternate bank $T_{alt}$ (next-longest history match)
+    \State
+    \If{$T_{prim}$ exists}
+        \State $pred_{prim} \gets T_{prim}.prediction$
+        \If{$T_{alt}$ exists}
+            \State $pred_{alt} \gets T_{alt}.prediction$
+        \Else
+            \State $pred_{alt} \gets B.Predict(PC)$
+        \EndIf
+        \State \textit{// Meta-predictor logic to select final prediction}
+        \If{$T_{prim}$ is not confident and has low usefulness}
+            \State \textbf{return} $pred_{alt}$
+        \Else
+            \State \textbf{return} $pred_{prim}$
+        \EndIf
+    \Else
+        \State \textbf{return} $B.Predict(PC)$
+    \EndIf
+\EndProcedure
+\Statex
+\Procedure{Train}{$PC, outcome, final\_pred$}
+    \State $mispredicted \gets (final\_pred \neq outcome)$
+    \State Update counter of the component that made the prediction ($T_{prim}$ or $B$).
+    \State Update usefulness counter $u$ for $T_{prim}$ if its prediction differed from $pred_{alt}$.
+    \State
+    \If{$mispredicted$ and provider was not $B$}
+        \State $can\_allocate \gets \text{false}$
+        \For{$i \gets 0$ \textbf{to} $prim\_bank\_idx-1$}
+            \If{$T_i.entry.usefulness = 0$}
+                \State $can\_allocate \gets \text{true}$; \textbf{break}
+            \EndIf
+        \EndFor
+        \State
+        \If{$can\_allocate$}
+            \State Choose a bank $T_{new}$ from those with $u=0$.
+            \State Overwrite entry in $T_{new}$ with new tag and initial counter value based on $outcome$.
+        \Else \Comment{All potentially allocatable entries are useful}
+            \State Decrement usefulness counters in banks $T_0..T_{prim-1}$.
+        \EndIf
+    \EndIf
+    \State Update all global and compressed history registers.
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\subsubsection{Advantages and Disadvantages}
+A practical drawback of TAGE is that its many sequential look-ups and tag compares lengthen the critical path, increasing predictor latency and energy per prediction relative to simpler schemes.
 
 \section{Observation and Experimental Results}
 
-We ran the predictor simulator on six distributed traces:
+We evaluated the predictors on six benchmark traces provided for the course, covering a mix of integer, floating-point, and memory-intensive applications.
+
 \begin{itemize}
-    \item \texttt{int\_1}, \texttt{int\_2} (Integer workloads)
-    \item \texttt{fp\_1}, \texttt{fp\_2} (Floating-point workloads)
-    \item \texttt{mm\_1}, \texttt{mm\_2} (Memory-intensive workloads)
-\end{itemize}
-Each run reports:
-\begin{itemize}
-    \item Number of branch instructions processed
-    \item Mispredictions encountered
-    \item Misprediction rate (\%)
-    \item Approximate memory usage (bits)
+    \item \texttt{int\_1}, \texttt{int\_2}: Integer workloads.
+    \item \texttt{fp\_1}, \texttt{fp\_2}: Floating-point workloads.
+    \item \texttt{mm\_1}, \texttt{mm\_2}: Memory-intensive workloads.
 \end{itemize}
 
-\subsection{Final Results (from \texttt{runall.sh})}
+\subsection{Final Results and Analysis}
 
-Table~\ref{tab:final_results} summarizes the final misprediction rates observed for:
-\begin{itemize}
-    \item \texttt{Static} predictor (always predict Taken),
-    \item \texttt{G-Share} with 13 bits of global history,
-    \item \texttt{Tournament} with \texttt{ghistoryBits = 9}, \texttt{lhistoryBits = 10}, and \texttt{pcIndexBits = 10},
-    \item \texttt{Custom TAGE} using our default multi-bank configuration.
-\end{itemize}
+Table~\ref{tab:final_results} summarizes the misprediction rates for the baseline configurations of each predictor.
 
 \begin{table}[H]
-\centering
-\small
+\captionsetup{font=bf,size=small}
+\caption{Final Misprediction Rates (\%) for the 6 Traces}
+\label{tab:final_results}
 \begin{tabular}{@{}lcccc@{}}
 \toprule
 \textbf{Trace} & \textbf{Static (\%)} & \textbf{G-Share:13 (\%)} & \textbf{Tourn:9:10:10 (\%)} & \textbf{TAGE (\%)} \\
 \midrule
-int\_1 & 44.136 & 13.839 & 12.622 & 6.592 \\
-int\_2 & 5.508  & 0.420  & 0.426  & 0.254 \\
-fp\_1  & 12.128 & 0.825  & 0.991  & 0.767 \\
-fp\_2  & 42.350 & 1.678  & 3.246  & 0.236 \\
-mm\_1  & 50.353 & 6.696  & 2.581  & 0.343 \\
-mm\_2  & 37.045 & 10.138 & 8.483  & 5.292 \\
+int\_1 & 44.136 & 13.839 & 12.622 & \textbf{6.576} \\
+int\_2 & 5.508  & 0.420  & 0.426  & \textbf{0.257} \\
+fp\_1  & 12.128 & 0.825  & 0.991  & \textbf{0.767} \\
+fp\_2  & 42.350 & 1.678  & 3.246  & \textbf{0.259} \\
+mm\_1  & 50.353 & 6.696  & 2.581  & \textbf{0.323} \\
+mm\_2  & 37.045 & 10.138 & 8.483  & \textbf{5.253} \\
 \bottomrule
 \end{tabular}
-\caption{Final Misprediction Rates (\%) for the 6 Traces (from \texttt{runall.sh})}
-\label{tab:final_results}
+\Description{A table showing the misprediction rates for four predictors (Static, G-Share, Tournament, TAGE) across six benchmark traces. TAGE consistently has the lowest misprediction rate, which is bolded.}
 \end{table}
 
-\paragraph{Analysis.}
+\subsubsection{Comparative Analysis}
 \begin{enumerate}
-    \item \textbf{Static} performs poorly on most traces, confirming the necessity of dynamic branch prediction.
-    \item \textbf{G-Share} yields substantial accuracy gains over Static but is outperformed by Tournament on several workloads.
-    \item \textbf{Tournament} typically does better than G-Share, reflecting the benefit of combining local and global components.
-    \item \textbf{TAGE} significantly reduces mispredictions across the board, highlighting the power of multi-length history tracking.
+    \item \textbf{Static vs. Dynamic:} The static predictor (always Taken) performs very poorly, with misprediction rates as high as 50\%. This underscores the necessity of dynamic prediction. The only exception is \texttt{int\_2}, where branches are highly biased towards taken, but even there, dynamic predictors are an order of magnitude better.
+    \item \textbf{G-Share vs. Tournament:} The Tournament predictor generally outperforms G-Share. For instance, on \texttt{mm\_1}, it reduces the misprediction rate from 6.7\% to 2.6\%. This suggests that memory-intensive codes contain a mix of branch behaviors, some with strong local correlation (e.g., loops iterating over data structures) and others with global correlation, which the Tournament predictor effectively captures. However, on traces like \texttt{fp\_2}, G-Share surprisingly does better, indicating that the dominant branch patterns in that workload have strong global correlation that the larger global history of G-Share:13 captures better than the smaller global component of Tournament:9:10:10.
+    \item \textbf{TAGE's Dominance:} The custom TAGE predictor is the clear winner, achieving the lowest misprediction rate on every single trace. The improvements are dramatic on complex traces like \texttt{fp\_2} (from 1.68\% to 0.26\%) and \texttt{mm\_1} (from 2.58\% to 0.32\%). This demonstrates the power of using very long history information when available, combined with robust anti-aliasing (tags) and dynamic allocation. Even on the difficult \texttt{int\_1} and \texttt{mm\_2} traces, TAGE provides a significant reduction in mispredictions.
 \end{enumerate}
 
 \subsection{Memory Usage}
-Our code prints approximate bit usage for each predictor:
-\begin{itemize}
-    \item \emph{G-Share (13 bits)}: $\;2^{13} \times 2 = 16384\;$ bits
-    \item \emph{Tournament (9:10:10)}: $\; \underbrace{(2^{9}\times 2) + (2^{9}\times 2)}_{\text{Global + Choice}} + \underbrace{(2^{10}\times 2^{10}\times \dots)}_{\text{Local}} \approx 14\text{kb total}$
-    \item \emph{TAGE (Custom)}: The multi-bank structure sums to about \(\,63.25\)kb (63,250 bits), which satisfies the \(\,64\mathrm{K}+256\) bit limit.
-\end{itemize}
-
-\section{Extensions: Additional Experiments}
-
-Beyond the final settings, we performed extended sweeps of G-Share and Tournament parameters across various \texttt{ghistoryBits}, \texttt{lhistoryBits}, and \texttt{pcIndexBits}. Figures~\ref{fig:gshare_sweep} and~\ref{fig:tourn_heatmap} present two of these visualizations:
+The memory footprint of each predictor configuration was calculated to ensure it remained within the \textbf{64\,K bits + 256\,bit} budget\footnote{%
+64\,K bits = $2^{16}$ bits = 65\,536 bits. The extra 256 bits cover global/path history bookkeeping.}.
+A kilobyte (KB) is defined here as $1024$ bytes ($8192$ bits).
 
 \begin{itemize}
-    \item \textbf{G-Share Sweep (Figure~\ref{fig:gshare_sweep})}: We vary \texttt{ghistoryBits} from 8 to 16, plotting misprediction rate for each of the six traces and an overall average line. As the history length grows, accuracy generally improves, though memory usage also increases.
-    \item \textbf{Tournament Heatmap (Figure~\ref{fig:tourn_heatmap})}: For each of four \texttt{pcIndexBits} values (9 to 12), we map \texttt{ghistoryBits} (horizontal) vs. \texttt{lhistoryBits} (vertical) and color the cell by the \emph{average} misprediction rate across all six traces. Darker (blue) regions indicate lower misprediction rates, while lighter (yellow) regions indicate higher misprediction rates.
+    \item \textbf{G-Share (13 bits):} The BHT is the only major component.
+    $$ \text{Size} = 2^{13} \text{ entries} \times 2 \text{ bits/entry} = 16{,}384 \text{ bits} \approx 2.00 \text{ KB} $$
+
+    \item \textbf{Tournament (9:10:10):} The size is the sum of its three tables.
+    \begin{itemize}
+        \item Global BHT: $2^9 \times 2 = 1{,}024$ bits
+        \item Choice PT: $2^9 \times 2 = 1{,}024$ bits
+        \item Local PHT: $2^{10} \times 10 = 10{,}240$ bits
+        \item Local BHT: $2^{10} \times 2 = 2{,}048$ bits
+    \end{itemize}
+    $$ \text{Total} = 1{,}024 + 1{,}024 + 10{,}240 + 2{,}048 = 14{,}336 \text{ bits} \approx 1.75 \text{ KB} $$
+
+    \item \textbf{TAGE (Custom):} The total size is the sum of its bimodal base predictor, tagged banks, and history registers.  
+    Parameters: \texttt{NUM\_BANKS}=7, \texttt{LEN\_GLOBAL}=9.
+    \begin{itemize}
+        \item \textbf{Bimodal Predictor:} A single array of 2-bit counters.  
+        $$ \text{Size}_{\text{bimodal}} = 4{,}099 \text{ entries} \times 2 \text{ bits/entry} = 8{,}198 \text{ bits} $$
+        \item \textbf{Tagged Banks ($T_0$–$T_6$):} Seven banks, each with $2^{9}=512$ entries.  
+        Each entry stores a 3-bit counter, a 10-bit tag, and a 2-bit usefulness field.  
+        $$ \text{Bits per entry} = 3 + 10 + 2 = 15 \text{ bits} $$
+        $$ \text{Size}_{\text{banks}} = 7 \times 512 \times 15 = 53{,}760 \text{ bits} $$
+        \item \textbf{History Registers:}  
+        $$ \text{Size}_{\text{hist}} = 131 \text{ (GHR)} + 16 \text{ (path history)} = 147 \text{ bits} $$
+    \end{itemize}
+    The main table storage is therefore
+    $$ \text{Total Table Size} = 8{,}198 + 53{,}760 = 61{,}958 \text{ bits} \approx 7.56 \text{ KB}. $$
+    Including history registers:
+    $$ \text{Grand Total} = 61{,}958 + 147 = 62{,}105 \text{ bits} \approx 7.58 \text{ KB}. $$
+    This is well below the \textbf{65\,792-bit} (64\,K bits + 256 bits) hardware budget.
 \end{itemize}
+
+\section{Extensions: Parameter Sweeps}
+
+To better understand predictor behavior, we performed extended experiments by sweeping parameters for G-Share and Tournament predictors.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.65\textwidth]{gshare_sweep.png}
-  \caption{G-Share Misprediction Rate vs. History Bits (8-16) for the Six Traces + Average}
+  \captionsetup{font=bf,size=small}
+  \includegraphics[width=\linewidth]{../gshare_sweep.png}
+  \caption{G-Share Misprediction Rate vs. History Bits (8-16)}
   \label{fig:gshare_sweep}
+  \Description{A line plot showing G-Share misprediction rate as a function of global history bits (from 8 to 16). Six lines represent the different traces, and one line shows the average. Misprediction generally decreases as history length increases.}
 \end{figure}
 
-\begin{figure}[H]
+\subsubsection{G-Share Parameter Sweep Analysis}
+Figure \ref{fig:gshare_sweep} shows the effect of varying the GHR length from 8 to 16 bits. The "Average" line shows a clear trend: misprediction rates decrease as history length increases. This is expected, as longer history can distinguish more complex branch patterns. However, the gains diminish for very long histories, and for some traces like \texttt{int\_2}, performance is already so good that more history provides little benefit. For others like \texttt{int\_1}, longer history is crucial. This highlights the trade-off between performance and the exponentially increasing cost of the BHT.
+
+\begin{figure*}[t]
   \centering
-  \includegraphics[width=0.8\textwidth]{tournament_heatmap.png}
+  \captionsetup{font=bf,size=small}
+  \includegraphics[width=0.8\textwidth]{../tournament_heatmap.png}
   \caption{Tournament Predictor: GH vs. LH for Different PC Bits (Average Misprediction Rate)}
   \label{fig:tourn_heatmap}
-\end{figure}
+  \Description{Four heatmaps showing the average misprediction rate for the Tournament predictor. Each heatmap corresponds to a different number of PC index bits (9, 10, 11, 12). The x-axis is global history bits and the y-axis is local history bits. Darker purple/blue areas indicate lower misprediction rates.}
+\end{figure*}
 
-Overall, these sweeps reveal how increasing history length generally improves accuracy but also increases storage cost. In the tournament predictor heatmaps, \texttt{pcIndexBits} around 10-12 combined with moderate \texttt{ghistoryBits} and \texttt{lhistoryBits} can yield strong performance. The sweet spot in each subfigure often balances the trade-off between local and global correlation capture.
-
-\section{Results and Conclusion}
-
-\paragraph{Summary of Findings.}
+\subsubsection{Tournament Parameter Sweep Analysis}
+Figure \ref{fig:tourn_heatmap} visualizes the three-dimensional design space of the Tournament predictor. Each subplot fixes the number of PC index bits and shows how the average misprediction rate varies with global history (GH) and local history (LH) bits.
 \begin{itemize}
-    \item TAGE outperforms simpler schemes in every tested scenario, though it uses more complex data structures.
-    \item Tournament is a balanced design, typically besting G-Share, especially on memory-heavy traces.
-    \item G-Share is a well-known baseline, relatively simple and fairly robust, but not as adaptive as Tournament or TAGE.
-    \item Static is uniformly poor across the traces, highlighting the importance of dynamic branch prediction.
+    \item \textbf{Impact of PC Index Bits:} Increasing the PC index bits (from pc=9 to pc=12) generally improves performance (the plots become darker overall). This is because a larger PC index for the local PHT reduces aliasing, allowing the local predictor to track more distinct branches accurately.
+    \item \textbf{GH vs. LH Trade-off:} Within each plot, the optimal configurations (darkest regions) are not at the extremes. This indicates that a balance between local and global history is necessary. For example, in the pc=12 subplot, a configuration with high GH (13-14) and moderate LH (10-11) performs very well, suggesting that with aliasing reduced, global patterns become more valuable.
+\end{itemize}
+These heatmaps are powerful tools for a hardware designer to identify cost-effective configurations that yield high performance without over-allocating resources to any single component.
+
+\section{Conclusion}
+
+This project successfully implemented and evaluated three branch predictors of increasing complexity. Our findings provide a clear picture of the trade-offs between predictor design, hardware cost, and prediction accuracy.
+
+\subsubsection{Summary of Findings}
+\begin{itemize}
+    \item The custom \textbf{TAGE predictor} demonstrated superior performance across all workloads, confirming that state-of-the-art academic predictors can deliver significant gains in practice. Its use of tagged, variable-length history is highly effective at capturing a wide range of branch behaviors while managing aliasing.
+    \item The \textbf{Tournament predictor} serves as an excellent intermediate design, robustly handling diverse workloads by adapting between local and global strategies. It consistently outperforms G-Share, except in cases where workloads are heavily dominated by global correlations that benefit from a single, large global history table.
+    \item \textbf{G-Share} remains a strong baseline, offering a substantial improvement over static prediction with minimal complexity. Its performance is highly sensitive to history length, but it provides a solid foundation for more advanced designs.
 \end{itemize}
 
-\paragraph{Future Work.}
+\subsubsection{Future Work}
+This work could be extended in several promising directions:
 \begin{itemize}
-    \item \textbf{Perceptron or ML-based Branch Prediction:} Investigate neural methods.
-    \item \textbf{Further TAGE Tuning:} Adjusting bank sizes, tags, or path history lengths for optimal coverage.
-    \item \textbf{Hybrid Schemes:} Combine TAGE with other advanced predictors (e.g., loop predictors) to handle highly repetitive branches.
+    \item \textbf{Perceptron Predictor:} Implement a perceptron-based predictor, which uses machine learning principles to weigh different features of branch history. This could offer a different approach to correlation and may excel on patterns TAGE finds difficult.
+    \item \textbf{TAGE Enhancements:} Further tune the TAGE predictor by incorporating features from more recent designs, such as a loop predictor \cite{seznec2007tage} or a statistical corrector (SC) that leverages local history \cite{seznec2011}. A loop predictor would be particularly useful for highly regular, iterative branches, while a statistical corrector helps with branches that are statistically biased but not strongly correlated with global history.
+    \item \textbf{Power and Latency Modeling:} The current study focuses on accuracy and memory size. A more complete analysis would involve modeling the latency and power consumption of each predictor to evaluate their overall efficiency in a realistic processor design.
 \end{itemize}
 
-\section*{References}
-\begingroup
-\renewcommand{\section}[2]{}
-\begin{thebibliography}{9}
+%%
+%% The acknowledgments section is defined using the "acks" environment
+\begin{acks}
+OpenAI's ChatGPT (model gpt-4o) was utilized to generate code from formulas and algorithms, assist in generating the visualization script to create plots from results, adding comments where needed, to help debug code and set up errors, and assist in \LaTeX formatting. The outputs from this AI model were modified with \textbf{major changes} to align with assignment requirements and ensure correctness. I actively reviewed, tested, and adjusted the generated code and explanations to reflect my own understanding.
+\end{acks}
 
-\bibitem{yhsmith1981}
-J.~Smith,
-\newblock ``A Study of Branch Prediction Strategies,''
-\newblock in \emph{ISCA '81: Proceedings of the 8th International Symposium on Computer Architecture}, 1981.
-\newblock \url{https://courses.cs.washington.edu/courses/cse590g/04sp/Smith-1981-A-Study-of-Branch-Prediction-Strategies.pdf}
+%%
+%% The next two lines define the bibliography style to be used, and
+%% the bibliography file.
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{sample-base}
 
-\bibitem{mcfarling1993combining}
-S.~McFarling,
-\newblock ``Combining Branch Predictors,''
-\newblock \emph{WRL Technical Note TN-36}, Digital Equipment Corporation, 1993.
-\newblock \url{https://www.ece.ucdavis.edu/~akella/270W05/mcfarling93combining.pdf}
 
-\bibitem{seznec2006cottage}
-A.~Seznec and P.~Michaud,
-\newblock ``A Case for (Partially) TAgged GEometric History Length Branch Prediction,''
-\newblock \emph{Journal of Instruction-Level Parallelism}, 2006.
-\newblock \url{https://www.irisa.fr/caps/people/seznec/JILP-COTTAGE.pdf}
-
-\bibitem{seznec2007tage}
-A.~Seznec,
-\newblock ``A 256Kbits L-TAGE Branch Predictor,''
-\newblock \emph{Journal of Instruction-Level Parallelism}, 2007.
-\newblock \url{https://www.irisa.fr/caps/people/seznec/L-TAGE.pdf}
-
-\bibitem{seznec2011}
-A.~Seznec,
-\newblock ``TAGE-SC-L Branch Predictors Again,''
-\newblock \emph{Journal of Instruction-Level Parallelism}, 2011.
-\newblock \url{https://www.cs.cmu.edu/~18742/papers/Seznec2011.pdf}
-
-\end{thebibliography}
-\endgroup
-
+%%
+%% If your work has an appendix, this is the place to put it.
 \appendix
 \section{Appendix: AI Tool Usage and Chat Logs}
 
 \subsection{Overview}
 In compliance with the project requirement to cite AI assistance and include prompts + outcomes, this appendix contains the key conversations with OpenAI’s ChatGPT (model gpt-4o). Below are excerpts showcasing how the tool was used to help debug code, generate example snippets, and provide explanatory text. All of these AI‐generated outputs were manually reviewed and substantially adapted.
 
+\onecolumn
 \subsection{Conversation 1: TAGE predictor counter debug}
 
 \begin{Verbatim}[fontsize=\tiny, breaklines=true]
@@ -305,7 +463,7 @@ With that info, I can pinpoint exactly where the issue is. In the meantime, here
 
 ---
 
-### �� Quick Checks for Debugging
+### Quick Checks for Debugging
 
 1. **Counter Saturation Boundaries**:
    Make sure you're checking boundaries before updating:
@@ -436,9 +594,9 @@ static inline void tage_train(uint32_t pc, uint8_t outcome) {
 
 GPT-4o: Below is a rundown of what’s causing your **saturating counters** to go out of range in the snippet you posted and how to fix it. The main issues are:
 
-1. **No Bound Checks** when incrementing or decrementing the saturating counters.
-2. **Re-initialization Values** (`+2` or `-2`) that may be inconsistent with the defined bit width of your counters.
-3. **Usefulness Counters** also updated without bounding, which can similarly wrap around.
+1. **No Bound Checks** when incrementing or decrementing the saturating counters.  
+2. **Re-initialization Values** (`+2` or `-2`) that may be inconsistent with the defined bit width of your counters.  
+3. **Usefulness Counters** also updated without bounding, which can similarly wrap around.  
 
 Let’s walk through the details.
 
@@ -459,9 +617,9 @@ with no checks. If you keep incrementing, you eventually push `saturateCounter` 
 ### **How to Fix**
 
 1. **Decide the width** of your counters. Commonly in TAGE, each tagged entry uses a **3-bit** or **4-bit** signed saturating counter. For instance, if you use a **3-bit** scheme with sign-based prediction:
-   - Negative values (−4 to −1) => “predict not taken”
-   - Zero or positive (0 to +3) => “predict taken”
-   - And you saturate at **−4** (min) or **+3** (max).
+   - Negative values (-4 to -1) => “predict not taken”  
+   - Zero or positive (0 to +3) => “predict taken”  
+   - And you saturate at **-4** (min) or **+3** (max).  
 
 2. **Clamp** on increment/decrement. For example, if using a 3-bit range of `-4..+3`:
    ```c
@@ -480,24 +638,24 @@ with no checks. If you keep incrementing, you eventually push `saturateCounter` 
    }
    ```
 
-That way, the counter does not exceed +3 or drop below −4, ensuring proper saturating behavior.
+That way, the counter does not exceed +3 or drop below -4, ensuring proper saturating behavior.
 
 ---
 
-## 2. Re-Initializing the Counter to +2 or −2
+## 2. Re-Initializing the Counter to +2 or -2
 
 Inside your “allocate” path, you do:
 ```c
 tageBank[i].entry[ bankGlobalIndex[i] ].saturateCounter =
     (outcome == TAKEN) ? 2 : -2;  // Wrong initial range if 2-bit or mismatch
 ```
-This can be **fine** if your saturating counter range is at least ±2. (In a 3-bit scheme from −4..+3, ±2 is valid and comfortably within the range.) However, if you intended to use only **2 bits** with sign-based logic, then the range is typically −2..+1 (four total states), and +2 would already be “out of range.”
+This can be **fine** if your saturating counter range is at least ±2. (In a 3-bit scheme from -4..+3, ±2 is valid and comfortably within the range.) However, if you intended to use only **2 bits** with sign-based logic, then the range is typically -2..+1 (four total states), and +2 would already be “out of range.”  
 
 ### **How to Fix**
 
-- Confirm your desired saturating counter width and sign convention.
-- If it’s 3 bits (−4..+3), re-initializing to ±2 is perfectly valid. Just make sure your bounding constants match.
-- If it’s 2 bits (−2..+1), then you must clamp `+2` or `-2` to that narrower range.
+- Confirm your desired saturating counter width and sign convention.  
+- If it’s 3 bits (-4..+3), re-initializing to ±2 is perfectly valid. Just make sure your bounding constants match.  
+- If it’s 2 bits (-2..+1), then you must clamp `+2` or `-2` to that narrower range.
 
 ---
 
@@ -520,7 +678,7 @@ If `usefulness` is supposed to be a small saturating counter (e.g., 2 bits or 3 
 
 ### **How to Fix**
 
-- Decide the max/min for `usefulness` (e.g., 0..3).
+- Decide the max/min for `usefulness` (e.g., 0..3).  
 - Clamp it in exactly the same way:
   ```c
   #define U_MAX 3
@@ -564,10 +722,10 @@ if (outcome == TAKEN) {
 
 **Key actions** to fix the out-of-range saturating counter bug:
 
-1. **Define constants** for the saturating counter bounds.
-2. **Clamp** each increment/decrement to those bounds.
-3. Ensure your **initial values** (like +2 or −2) fall within the same bounds.
-4. Do the same for the **usefulness** counters and bimodal counters (if they’re also meant to be saturating).
+1. **Define constants** for the saturating counter bounds.  
+2. **Clamp** each increment/decrement to those bounds.  
+3. Ensure your **initial values** (like +2 or -2) fall within the same bounds.  
+4. Do the same for the **usefulness** counters and bimodal counters (if they’re also meant to be saturating).  
 
 Once you add those fixes, you shouldn’t see the counters blowing past the valid range. Let me know if you have other questions on TAGE details, or if you need help deciding on the bit widths for your counters!
 \end{Verbatim}
@@ -580,13 +738,13 @@ GPT-4o: Sure! Here's a high-level explanation of how a **TAGE (TAgged GEometric 
 
 ---
 
-### �� Overview of TAGE
+### Overview of TAGE
 
 TAGE is a **state-of-the-art branch predictor** used in modern CPUs to guess the direction of branches (taken or not taken) before they're resolved, improving instruction-level parallelism. It builds on the idea that **longer branch histories** can improve prediction accuracy, but in a smart and scalable way.
 
 ---
 
-### �� Multi-bank Structure
+### Multi-bank Structure
 
 - TAGE uses **multiple predictor components**, often called **banks or tables**.
 - Each table (except for the base one) is associated with a **different history length**, forming a hierarchy.
@@ -597,21 +755,21 @@ TAGE is a **state-of-the-art branch predictor** used in modern CPUs to guess the
 
 ---
 
-### �� Geometric History Lengths
+### Geometric History Lengths
 
 - Each tagged table uses a **different history length**, forming a **geometric progression**:
   ```
-  L(i) = floor(α^i), for i = 0 to N-1
+  L(i) = floor(\alpha^i), for i = 0 to N-1
   ```
   where:
   - `L(i)` is the history length for table `i`
-  - `α` is a geometric growth factor (e.g., 1.5 to 2)
+  - `\alpha` is a geometric growth factor (e.g., 1.5 to 2)
   - `N` is the number of tagged tables
 - This setup allows TAGE to cover a wide range of history lengths with **fewer tables**, efficiently balancing coverage and resource usage.
 
 ---
 
-### �� Partial Tag Generation
+### Partial Tag Generation
 
 - Each entry in a tagged table stores a **partial tag** to match against the branch’s history-derived signature.
 - A **partial tag** is generated by:
@@ -621,7 +779,7 @@ TAGE is a **state-of-the-art branch predictor** used in modern CPUs to guess the
 
 ---
 
-### �� Prediction Process
+### Prediction Process
 
 1. For a given branch:
    - The PC and global history are used to index all tables.
@@ -632,7 +790,7 @@ TAGE is a **state-of-the-art branch predictor** used in modern CPUs to guess the
 
 ---
 
-### ✅ Summary
+### Summary
 
 - **Multi-bank structure**: Multiple tables store predictions with varying history lengths.
 - **Geometric history lengths**: History lengths grow exponentially to capture both short-term and long-term correlations.
@@ -649,13 +807,13 @@ GPT-4o: Great question! Let's break this down and calculate the storage used per
 
 ---
 
-### �� **Per-Entry Bit Usage (per bank)**
+### **Per-Entry Bit Usage (per bank)**
 
 For **each TAGE predictor bank entry**, you typically store:
 
-1. **Tag** = 10 bits
-2. **Saturating Counter** = 3 bits
-3. **Usefulness Counter** = 2 or 3 bits (depends on your design)
+1. **Tag** = 10 bits  
+2. **Saturating Counter** = 3 bits  
+3. **Usefulness Counter** = 2 or 3 bits (depends on your design)  
 
 So per entry:
 - If 2-bit usefulness: `10 + 3 + 2 = 15 bits`
@@ -663,7 +821,7 @@ So per entry:
 
 ---
 
-### �� **Compressed Histories**
+### **Compressed Histories**
 
 **Compressed histories** are used to save storage on the history-based indexing and tagging functions. These aren't per-entry — they’re global/shared across banks.
 
@@ -676,15 +834,15 @@ In many designs, each compressed history is ~10–16 bits per component (dependi
 - One for index generation (per bank)
 - One for tag generation (per bank)
 
-So rough estimate:
-`~2 compressed histories × N banks × ~16 bits = small amount`
+So rough estimate:  
+`~2 compressed histories × N banks × ~16 bits = small amount`  
 Say for 8 banks: `2 × 8 × 16 = 256 bits` — which actually matches the **+256** in your `64K + 256` constraint.
 
-�� **Conclusion:** You’re allowed to spend **64K bits (65,024 bits)** on your *tables*, and the extra 256 bits are for compressed histories.
+**Conclusion:** You’re allowed to spend **64K bits (65,024 bits)** on your *tables*, and the extra 256 bits are for compressed histories.
 
 ---
 
-### ✅ **Storage Budget Summary**
+### **Storage Budget Summary**
 
 You have:
 - **64K bits = 65,024 bits for TAGE entries**
@@ -694,7 +852,7 @@ Let’s calculate how many entries you can have per bank.
 
 ---
 
-### �� **Example: How Many Entries per Bank?**
+### **Example: How Many Entries per Bank?**
 
 Let’s say:
 - 4 banks
@@ -704,7 +862,7 @@ Let’s say:
 Assuming equal size per bank:
 ```
 Total bits per bank = 65,024 / 4 = 16,256 bits
-Entries per bank = 16,256 / 15 ≈ 1,083 entries
+Entries per bank = 16,256 / 15 \approx 1,083 entries
 ```
 
 If usefulness = 3 bits (16 bits per entry):
@@ -716,7 +874,7 @@ You can also vary the number of entries per bank (fewer entries for longer-histo
 
 ---
 
-### ��️ Other Considerations:
+### Other Considerations:
 
 - **Base Predictor**: Don’t forget that TAGE usually includes a base predictor (like a bimodal table), which may need separate bits.
 - **Banked vs Fully Associative**: If you implement associativity or partial associativity, it affects indexing and possibly tag size.
@@ -727,7 +885,7 @@ You can also vary the number of entries per bank (fewer entries for longer-histo
 ### TL;DR:
 
 - **Per-entry size = tag (10) + ctr (3) + useful (2–3) = 15–16 bits**
-- **Compressed histories ≈ 256 bits total — fits within the “+256 bits” budget**
+- **Compressed histories \approx 256 bits total — fits within the “+256 bits” budget**
 - Use your total bit budget (65,024) to divide across banks and determine entry count
 
 Let me know how many banks you’re using or if you want help optimizing your layout!
@@ -735,7 +893,7 @@ Let me know how many banks you’re using or if you want help optimizing your la
 
 \subsection{Conversation 4: TAGE Training Function Annotation}
 \begin{Verbatim}[fontsize=\tiny, breaklines=true]
-Me:
+Me: 
 
 Could you annotate the tage_train() function?
 
@@ -884,7 +1042,7 @@ static inline void tage_train(uint32_t pc, uint8_t outcome) {
             // those banks with a new tag/saturating counter.
 
             // Y is used here to randomly select which bank (among the possible ones) gets the new entry.
-            // The expression "(1 << (primaryBank - 1)) - 1" essentially creates a bitmask.
+            // The expression "(1 << (primaryBank - 1)) - 1" essentially creates a bitmask. 
             // For example, if primaryBank = 3, we get (1 << 2) - 1 = 3 (binary 11).
             int Y = rand() & ((1 << (primaryBank - 1)) - 1);
             int X = primaryBank - 1;
@@ -985,7 +1143,7 @@ GPT-4o: Sure! Let's walk through setting up a Docker container that compiles and
 
 ---
 
-## ✅ Step 1: Project Layout (Assumed)
+## Step 1: Project Layout (Assumed)
 
 Suppose your project folder looks like this on your **Windows host**:
 
@@ -1004,7 +1162,7 @@ We'll mount this directory into Docker.
 
 ---
 
-## ✅ Step 2: Create a Dockerfile (optional)
+## Step 2: Create a Dockerfile (optional)
 
 If you want a custom environment, create a `Dockerfile` like this:
 
@@ -1027,7 +1185,7 @@ Alternatively, you can skip this and use a base image like `gcc` with bzip2.
 
 ---
 
-## ✅ Step 3: Run Docker with Proper Mounts
+## Step 3: Run Docker with Proper Mounts
 
 On **Windows**, your path `/mnt/c/Users/YourName/branch_predictor` corresponds to `C:\Users\YourName\branch_predictor`.
 
@@ -1052,7 +1210,7 @@ apt install -y build-essential bzip2
 
 ---
 
-## ✅ Step 4: Compile with Make
+## Step 4: Compile with Make
 
 Inside the container (you're now at `/app`, which is your Windows project dir):
 
@@ -1064,7 +1222,7 @@ This should compile `predictor.c` into the binary `sim`.
 
 ---
 
-## ✅ Step 5: Run Sim with `.bz2` Trace Files
+## Step 5: Run Sim with `.bz2` Trace Files
 
 Assuming `sim` takes a trace file as argument like this:
 
@@ -1089,7 +1247,7 @@ done
 
 ---
 
-## �� Full Session Recap (All Together)
+## Full Session Recap (All Together)
 
 ```bash
 docker run --rm -it -v /mnt/c/Users/YourName/branch_predictor:/app -w /app ubuntu:22.04 bash
@@ -1116,7 +1274,7 @@ Let me break it down for you:
 
 ---
 
-### �� What is gshare?
+### What is gshare?
 
 **gshare** is a dynamic branch predictor that uses:
 
@@ -1126,7 +1284,7 @@ Let me break it down for you:
 
 ---
 
-### �� What does `gshare:14` or `gshare:15` mean?
+### What does `gshare:14` or `gshare:15` mean?
 
 These likely refer to the number of **index bits** used to access the prediction table:
 - `gshare:14` → 14 bits are used to index the table.
@@ -1138,7 +1296,7 @@ This affects:
 
 ---
 
-### �� Why the slight difference?
+### Why the slight difference?
 
 1. **Structural behavior:**
    - A larger table (`gshare:15`) generally helps — more entries, less aliasing.
@@ -1155,7 +1313,7 @@ This affects:
 
 ---
 
-### �� Is randomness involved?
+### Is randomness involved?
 
 Unlikely unless:
 - The simulator is non-deterministic (e.g., uses random initial table values or thread interleaving).
@@ -1165,7 +1323,7 @@ If you're using a standard gshare implementation and always run the same trace (
 
 ---
 
-### ✅ Summary:
+### Summary:
 
 The difference in misprediction rate between `gshare:14` and `gshare:15` is due to **structural indexing differences** (how GHR and PC bits XOR to select table entries), not randomness. The slightly worse rate for `gshare:15` on `fp_1` is probably a quirk of **aliasing patterns** or rounding precision — not an anomaly.
 
@@ -1174,4 +1332,8 @@ If you want, I can show you how to visualize the indexing to see exactly which b
 
 \thispagestyle{ack_footer}
 
+
 \end{document}
+\endinput
+%%
+%% End of file
